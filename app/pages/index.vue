@@ -29,6 +29,7 @@
 </template>
 
 <script setup lang="ts">
+  definePageMeta({ hideGlobalHeader: true })
   import HeroSection from '~/components/sections/HeroSection.vue';
   import DetailsSection from '~/components/sections/DetailsSection.vue';
   import StaySection from '~/components/sections/StaySection.vue';
