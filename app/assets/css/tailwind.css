@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        @apply scroll-smooth bg-neutral-50 text-ink font-serif;
+    }
+    h1,
+    h2,
+    h3,
+    h4 {
+        @apply text-[#605F4B] font-display;
+    }
+}
