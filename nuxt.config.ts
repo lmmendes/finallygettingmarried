@@ -1,7 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
-  modules: ["@nuxtjs/tailwindcss"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n", "@vueuse/nuxt"],
+  i18n: {
+    defaultLocale: 'pt',
+    strategy: 'prefix_except_default',
+    langDir: 'locales',
+    locales: [
+      { code: 'pt', iso: 'pt-PT', file: 'pt.json', name: 'Português', flag: '🇵🇹' },
+      { code: 'en', iso: 'en-US', file: 'en.json', name: 'English',   flag: '🇬🇧' }
+    ]
+  },
   app: {
     head: {
       title: "Luís & Sónia — Finalmente vai haver casamento!",
