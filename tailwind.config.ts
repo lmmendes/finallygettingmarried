@@ -12,10 +12,12 @@ export default <Partial<Config>>{
   theme: {
     extend: {
       colors: {
-        primary: "#48523e", // olive-ish (timer bar in mock)
-        accent: "#c9c2ab", // light olive/beige
+        primary: "#605F4B", // Main text color from Figma
+        accent: "#C47457", // Link/accent color from Figma  
+        "bg-light": "#F7F8FC", // Light background from Figma
+        "bg-card": "#F9F4EA", // Card background from Figma
+        olive: "#9C9E80", // Button/accent color from Figma
         ink: "#2a2a2a",
-        olive: "#605F4B",
       },
       fontFamily: {
         serif: ['Newsreader', "serif"],

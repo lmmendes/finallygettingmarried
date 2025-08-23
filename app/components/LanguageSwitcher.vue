@@ -1,7 +1,7 @@
 <template>
   <div class="relative" @keydown.escape="open=false">
     <button
-        class="flex items-center gap-2 rounded-full border border-neutral-200 bg-white/70 px-3 py-1.5 shadow-sm hover:bg-white"
+        class="flex items-center gap-2 rounded-full border border-gray-300 bg-bg-light px-3 py-2 hover:bg-white transition-colors"
         @click="open = !open"
         :aria-expanded="open"
         aria-haspopup="listbox"

@@ -6,36 +6,46 @@ const { remaining } = useCountdown(target);
 </script>
 
 <template>
-    <div class="mx-auto max-w-4xl px-4 text-center">
-        <div class="rounded-2xl border border-white/20 p-8 md:p-10">
-            <p class="font-script text-2xl opacity-90">Está quase!</p>
-            <div
-                class="mt-6 flex items-center justify-center gap-8 text-4xl md:text-5xl font-serif"
-            >
-                <div>
-                    <span>{{ remaining.years }}</span>
-                    <div class="text-xs mt-1 opacity-90">Anos</div>
-                </div>
-                <span class="opacity-60">:</span>
-                <div>
-                    <span>{{ remaining.months }}</span>
-                    <div class="text-xs mt-1 opacity-90">Meses</div>
-                </div>
-                <span class="opacity-60">:</span>
-                <div>
-                    <span>{{ remaining.days }}</span>
-                    <div class="text-xs mt-1 opacity-90">Dias</div>
-                </div>
+    <section class="mx-8">
+        <div class="bg-olive rounded-3xl p-8 text-center relative overflow-hidden">
+            <!-- Hand-drawn squiggly border - single internal decoration -->
+            <div class="absolute inset-0 pointer-events-none">
+                <img 
+                    src="/images/design/squigly-line.svg" 
+                    alt="Decorative border" 
+                    class="absolute inset-4 w-auto h-auto opacity-80"
+                    style="filter: brightness(0) invert(1); width: calc(100% - 2rem); height: calc(100% - 2rem);"
+                />
             </div>
+            
+            <!-- Content -->
+            <div class="relative z-10">
+                <div class="flex items-center justify-center gap-8 text-5xl md:text-6xl font-display font-bold text-white mb-8">
+                    <div class="text-center">
+                        <div class="w-26 text-center">{{ String(remaining.years).padStart(2, '0') }}</div>
+                        <div class="text-base font-serif font-light text-white/80 mt-1">Anos</div>
+                    </div>
+                    <span class="text-white">:</span>
+                    <div class="text-center">
+                        <div class="w-26 text-center">{{ String(remaining.months).padStart(2, '0') }}</div>
+                        <div class="text-base font-serif font-light text-white/80 mt-1">Meses</div>
+                    </div>
+                    <span class="text-white">:</span>
+                    <div class="text-center">
+                        <div class="w-26 text-center">{{ String(remaining.days).padStart(2, '0') }}</div>
+                        <div class="text-base font-serif font-light text-white/80 mt-1">Dias</div>
+                    </div>
+                </div>
 
-            <a
-                href="https://forms.gle"
-                target="_blank"
-                rel="noopener"
-                class="mt-8 inline-block rounded-full bg-white text-primary px-6 py-3 font-medium hover:opacity-90"
-            >
-                Confirmar presença
-            </a>
+                <a
+                    href="https://forms.gle"
+                    target="_blank"
+                    rel="noopener"
+                    class="inline-block bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-full font-display font-bold text-xl hover:bg-white/30 transition-colors shadow-lg border border-white/30"
+                >
+                    Confirmar presença
+                </a>
+            </div>
         </div>
-    </div>
+    </section>
 </template>

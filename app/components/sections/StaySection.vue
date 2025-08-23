@@ -4,15 +4,15 @@ import type { PlaceCard } from "~/types/places";
 const hotels: PlaceCard[] = [
     {
         name: "Moxy Lisboa Oriente",
-        area: "Lisboa",
-        driveMins: 30,
+        area: "Parque das nações",
+        driveMins: 90,
         bookingUrl: "https://booking.com",
         mapsUrl: "https://maps.google.com",
     },
     {
         name: "Hotel Ibis",
-        area: "Lisboa",
-        driveMins: 30,
+        area: "Parque das nações",
+        driveMins: 90,
         bookingUrl: "https://booking.com",
         mapsUrl: "https://maps.google.com",
     },
@@ -23,50 +23,81 @@ const hotels: PlaceCard[] = [
         mapsUrl: "https://maps.google.com",
     },
 ];
+
+const getHotelImage = (hotelName: string): string => {
+    const imageMap: Record<string, string> = {
+        "Moxy Lisboa Oriente": "/images/moxy-hotel.png",
+        "Hotel Ibis": "/images/ibis-hotel.png",
+        "Hotel da moita": "https://picsum.photos/80/80?random=3"
+    };
+    return imageMap[hotelName] || "https://picsum.photos/80/80?random=1";
+};
 </script>
 
 <template>
-    <div class="grid md:grid-cols-[1fr,2fr] gap-10">
-        <div>
-            <h2 class="text-xl font-semibold">Onde ficar</h2>
-            <p class="mt-3 text-neutral-700">
-                Para quem não é de Lisboa e precisa de um sítio para ficar,
-                deixamos algumas ideias.
-            </p>
-        </div>
+    <section class="px-8">
+        <div class="grid lg:grid-cols-2 gap-10 items-start">
+            <!-- Left side - Title and Description -->
+            <div class="space-y-4">
+                <h2 class="font-display font-bold text-primary text-4xl">Onde ficar</h2>
+                <p class="font-serif text-primary text-2xl leading-[1.5]">
+                    Para quem não é de Lisboa e precisa de um sítio para ficar, deixamos algumas ideias.
+                </p>
+            </div>
 
-        <ul class="grid sm:grid-cols-2 gap-6">
-            <li
-                v-for="h in hotels"
-                :key="h.name"
-                class="bg-white rounded-xl border shadow-soft overflow-hidden"
-            >
-                <div class="p-5">
-                    <h3 class="font-medium">{{ h.name }}</h3>
-                    <p class="text-sm text-neutral-600">
-                        {{ h.area }}
-                        <span v-if="h.driveMins">· {{ h.driveMins }}min</span>
-                    </p>
-                    <div class="mt-3 flex gap-4">
-                        <a
-                            v-if="h.bookingUrl"
-                            class="text-sm underline"
-                            :href="h.bookingUrl"
-                            target="_blank"
-                            rel="noopener"
-                            >Booking</a
-                        >
-                        <a
-                            v-if="h.mapsUrl"
-                            class="text-sm underline"
-                            :href="h.mapsUrl"
-                            target="_blank"
-                            rel="noopener"
-                            >Direções</a
-                        >
+            <!-- Right side - Hotel Cards -->
+            <div class="space-y-4">
+                <div
+                    v-for="h in hotels"
+                    :key="h.name"
+                    class="bg-bg-card rounded-xl p-4 flex items-center gap-4"
+                >
+                    <!-- Hotel Image -->
+                    <div class="w-20 h-20 flex-shrink-0">
+                        <img 
+                            :src="getHotelImage(h.name)" 
+                            :alt="h.name"
+                            class="w-full h-full object-cover rounded-lg"
+                        />
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="flex-1 space-y-2">
+                        <div class="space-y-1">
+                            <h3 class="font-display font-bold text-primary text-xl">{{ h.name }}</h3>
+                            <p class="font-serif text-primary text-base">
+                                {{ h.area }} - {{ h.driveMins }}min
+                            </p>
+                        </div>
+                        <div class="flex gap-4 text-sm">
+                            <a
+                                v-if="h.bookingUrl"
+                                :href="h.bookingUrl"
+                                target="_blank"
+                                rel="noopener"
+                                class="inline-flex items-center gap-1 font-display font-bold text-accent hover:underline"
+                            >
+                                Booking.com
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                            <a
+                                v-if="h.mapsUrl"
+                                :href="h.mapsUrl"
+                                target="_blank"
+                                rel="noopener"
+                                class="inline-flex items-center gap-1 font-display font-bold text-accent hover:underline"
+                            >
+                                Obter direções
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </li>
-        </ul>
-    </div>
+            </div>
+        </div>
+    </section>
 </template>
