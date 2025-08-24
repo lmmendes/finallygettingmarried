@@ -17,9 +17,9 @@
                     Finalmente vai haver casamento!
                 </h2>
                 <p class="font-serif font-light text-primary text-xl mb-10">23 Maio 2026</p>
-                <a href="#rsvp" class="inline-block border border-primary text-primary px-8 py-4 rounded-full font-display font-bold text-xl hover:bg-primary/10 transition-colors">
+                <button @click="scrollToRSVP" class="inline-block border border-primary text-primary px-8 py-4 rounded-full font-display font-bold text-xl hover:bg-primary/10 transition-colors">
                     Confirmar presença
-                </a>
+                </button>
             </section>
         </div>
 
@@ -105,6 +105,13 @@
   import StaySection from '~/components/sections/StaySection.vue';
   import EatSection from '~/components/sections/EatSection.vue';
   import AboutUsSection from '~/components/sections/AboutUsSection.vue';
-
   import CountdownSection from '~/components/sections/CountdownSection.vue';
+
+  const scrollToRSVP = () => {
+    // Scroll to the countdown section which has the RSVP button
+    const countdownSection = document.querySelector('.mx-8');
+    if (countdownSection) {
+      countdownSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 </script>

@@ -1,8 +1,26 @@
 <script setup lang="ts">
 import { useCountdown } from "~/composables/useCountdown";
+import RSVPModal from "~/components/RSVPModal.vue";
 
 const target = new Date("2026-05-23T15:00:00+01:00"); // 23 Maio 2026 15:00
 const { remaining } = useCountdown(target);
+
+// Modal state
+const isModalOpen = ref(false);
+
+const openModal = () => {
+    isModalOpen.value = true;
+};
+
+const closeModal = () => {
+    isModalOpen.value = false;
+};
+
+const handleRSVPSubmit = (data: any) => {
+    console.log('RSVP Data:', data);
+    // Here you would typically send the data to your backend
+    // For now, we'll just log it
+};
 </script>
 
 <template>
@@ -37,15 +55,20 @@ const { remaining } = useCountdown(target);
                     </div>
                 </div>
 
-                <a
-                    href="https://forms.gle"
-                    target="_blank"
-                    rel="noopener"
+                <button
+                    @click="openModal"
                     class="inline-block bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-full font-display font-bold text-xl hover:bg-white/30 transition-colors shadow-lg border border-white/30"
                 >
                     Confirmar presença
-                </a>
+                </button>
             </div>
         </div>
+
+        <!-- RSVP Modal -->
+        <RSVPModal 
+            :is-open="isModalOpen" 
+            @close="closeModal"
+            @submit="handleRSVPSubmit"
+        />
     </section>
 </template>
