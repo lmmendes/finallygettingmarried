@@ -5,8 +5,8 @@
             <!-- Header -->
             <header class="flex justify-between items-start p-4">
                 <div>
-                    <h1 class="font-display font-bold text-primary text-base leading-tight">Luís & Sónia</h1>
-                    <p class="font-serif font-light text-primary text-xs mt-1">Finalmente casam</p>
+                    <h1 class="font-display font-bold text-primary text-base leading-tight">{{ $t('brand.title') }}</h1>
+                    <p class="font-serif font-light text-primary text-xs mt-1">{{ $t('brand.subtitle') }}</p>
                 </div>
                 <LanguageSwitcher />
             </header>
@@ -14,11 +14,11 @@
             <!-- Hero CTA Section -->
             <section class="text-center py-20">
                 <h2 class="font-display font-bold text-primary text-5xl md:text-6xl leading-none mb-6">
-                    Finalmente vai haver casamento!
+                    {{ $t('hero.title') }}
                 </h2>
-                <p class="font-serif font-light text-primary text-xl mb-10">23 Maio 2026</p>
+                <p class="font-serif font-light text-primary text-xl mb-10">{{ $t('hero.date') }}</p>
                 <button @click="openModal" class="inline-block border border-primary text-primary px-8 py-4 rounded-full font-display font-bold text-xl hover:bg-primary/10 transition-colors">
-                    Confirmar presença
+                    {{ $t('hero.cta') }}
                 </button>
             </section>
         </div>
@@ -91,7 +91,7 @@
 
                 <!-- Footer -->
                 <footer class="text-center py-8">
-                    <p class="font-display font-bold text-primary text-sm">Votem Luís & Sónia '26</p>
+                    <p class="font-display font-bold text-primary text-sm">{{ $t('footer.text') }}</p>
                 </footer>
             </div>
         </div>

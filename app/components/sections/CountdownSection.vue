@@ -29,29 +29,29 @@ const openModal = () => {
             
             <!-- Content -->
             <div class="relative z-10">
-                <div class="flex items-center justify-center gap-8 text-5xl md:text-6xl font-display font-bold text-white mb-8">
-                    <div class="text-center">
-                        <div class="w-26 text-center">{{ String(remaining.years).padStart(2, '0') }}</div>
-                        <div class="text-base font-serif font-light text-white/80 mt-1">Anos</div>
-                    </div>
-                    <span class="text-white">:</span>
-                    <div class="text-center">
-                        <div class="w-26 text-center">{{ String(remaining.months).padStart(2, '0') }}</div>
-                        <div class="text-base font-serif font-light text-white/80 mt-1">Meses</div>
-                    </div>
-                    <span class="text-white">:</span>
-                    <div class="text-center">
-                        <div class="w-26 text-center">{{ String(remaining.days).padStart(2, '0') }}</div>
-                        <div class="text-base font-serif font-light text-white/80 mt-1">Dias</div>
-                    </div>
+                            <div class="flex items-center justify-center gap-8 text-5xl md:text-6xl font-display font-bold text-white mb-8">
+                <div class="text-center">
+                    <div class="w-26 text-center">{{ String(remaining.years).padStart(2, '0') }}</div>
+                    <div class="text-base font-serif font-light text-white/80 mt-1">{{ $t('countdown.years') }}</div>
                 </div>
+                <span class="text-white">:</span>
+                <div class="text-center">
+                    <div class="w-26 text-center">{{ String(remaining.months).padStart(2, '0') }}</div>
+                    <div class="text-base font-serif font-light text-white/80 mt-1">{{ $t('countdown.months') }}</div>
+                </div>
+                <span class="text-white">:</span>
+                <div class="text-center">
+                    <div class="w-26 text-center">{{ String(remaining.days).padStart(2, '0') }}</div>
+                    <div class="text-base font-serif font-light text-white/80 mt-1">{{ $t('countdown.days') }}</div>
+                </div>
+            </div>
 
-                <button
-                    @click="openModal"
-                    class="inline-block bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-full font-display font-bold text-xl hover:bg-white/30 transition-colors shadow-lg border border-white/30"
-                >
-                    Confirmar presença
-                </button>
+            <button
+                @click="openModal"
+                class="inline-block bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-full font-display font-bold text-xl hover:bg-white/30 transition-colors shadow-lg border border-white/30"
+            >
+                {{ $t('countdown.cta') }}
+            </button>
             </div>
         </div>
     </section>

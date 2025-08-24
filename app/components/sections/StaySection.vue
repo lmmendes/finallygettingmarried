@@ -39,9 +39,9 @@ const getHotelImage = (hotelName: string): string => {
         <div class="grid lg:grid-cols-2 gap-10 items-start">
             <!-- Left side - Title and Description -->
             <div class="space-y-4">
-                <h2 class="font-display font-bold text-primary text-4xl">Onde ficar</h2>
+                <h2 class="font-display font-bold text-primary text-4xl">{{ $t('stay.title') }}</h2>
                 <p class="font-serif text-primary text-2xl leading-[1.5]">
-                    Para quem não é de Lisboa e precisa de um sítio para ficar, deixamos algumas ideias.
+                    {{ $t('stay.description') }}
                 </p>
             </div>
 

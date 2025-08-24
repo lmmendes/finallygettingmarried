@@ -4,9 +4,9 @@
         <div class="relative">
             <!-- Text content positioned on the left -->
             <div class="max-w-md space-y-4 relative z-10">
-                <h2 class="font-display font-bold text-primary text-4xl italic">Um pouco de nós</h2>
+                <h2 class="font-display font-bold text-primary text-4xl italic">{{ $t('about.title') }}</h2>
                 <p class="font-serif text-primary text-2xl leading-[1.5]">
-                    Não foi amor à primeira vista mas entretanto passaram-se 9 anos e 1 gato por isso achámos que estava na hora.
+                    {{ $t('about.text') }}
                 </p>
             </div>
 

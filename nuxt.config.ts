@@ -9,7 +9,11 @@ export default defineNuxtConfig({
     locales: [
       { code: 'pt', iso: 'pt-PT', file: 'pt.json', name: 'Português', flag: '🇵🇹' },
       { code: 'en', iso: 'en-US', file: 'en.json', name: 'English',   flag: '🇬🇧' }
-    ]
+    ],
+    compilation: {
+      strictMessage: false,
+      escapeHtml: false
+    }
   },
   app: {
     head: {

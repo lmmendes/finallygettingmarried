@@ -12,27 +12,24 @@
 
             <!-- Right side - Text Column -->
             <div class="space-y-8">
-                <!-- Wedding Details Text -->
-                <div class="space-y-4">
-                    <p class="font-serif text-primary text-2xl leading-[1.5]">
-                        O casamento será no sábado, <strong>23 de Maio de 2026</strong>, na zona de Alenquer. 
-                        Começamos com uma cerimónia religiosa e seguimos para a quinta para 
-                        <span class="line-through">os negronis</span> a recepção e festa louca.
-                    </p>
-                </div>
+                                        <!-- Wedding Details Text -->
+                        <div class="space-y-4">
+                            <p class="font-serif text-primary text-2xl leading-[1.5]" v-html="$t('details.description')">
+                            </p>
+                        </div>
 
                 <!-- Ceremony and Reception Cards - Side by Side -->
                 <div class="grid md:grid-cols-2 gap-6">
                     <!-- Ceremony Card -->
                     <div class="space-y-4">
                         <div class="space-y-2">
-                            <h3 class="font-display font-bold text-primary text-2xl">Cerimónia</h3>
-                            <p class="font-serif text-primary text-sm">15h00 - 16h30</p>
+                            <h3 class="font-display font-bold text-primary text-2xl">{{ $t('details.ceremony.title') }}</h3>
+                            <p class="font-serif text-primary text-sm">{{ $t('details.ceremony.time') }}</p>
                         </div>
                         <div class="space-y-1">
-                            <p class="font-serif text-primary text-base">Igreja Matriz de Olhalvo</p>
-                            <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-1 font-display font-bold text-accent text-base hover:underline">
-                                Obter direções
+                            <p class="font-serif text-primary text-base">{{ $t('details.ceremony.location') }}</p>
+                            <a href="https://maps.google.com" target="_blank" rel="noopener" class="inline-flex items-center gap-1 font-display font-bold text-accent text-base hover:underline">
+                                {{ $t('details.ceremony.directions') }}
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                 </svg>
@@ -43,16 +40,14 @@
                     <!-- Reception Card -->
                     <div class="space-y-4">
                         <div class="space-y-2">
-                            <h3 class="font-display font-bold text-primary text-2xl">Recepção</h3>
-                            <p class="font-serif text-primary text-sm">16h30 - 2h00</p>
+                            <h3 class="font-display font-bold text-primary text-2xl">{{ $t('details.reception.title') }}</h3>
+                            <p class="font-serif text-primary text-sm">{{ $t('details.reception.time') }}</p>
                         </div>
                         <div class="space-y-1">
-                            <p class="font-serif text-primary text-base">
-                                Quinta de S. Gonçalo,<br>
-                                Alenquer
+                            <p class="font-serif text-primary text-base" v-html="$t('details.reception.location')">
                             </p>
-                            <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-1 font-display font-bold text-accent text-base hover:underline">
-                                Obter direções
+                            <a href="https://maps.google.com" target="_blank" rel="noopener" class="inline-flex items-center gap-1 font-display font-bold text-accent text-base hover:underline">
+                                {{ $t('details.reception.directions') }}
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                 </svg>

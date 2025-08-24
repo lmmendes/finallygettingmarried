@@ -37,9 +37,9 @@ const getRestaurantImage = (restaurantName: string): string => {
         <div class="grid lg:grid-cols-2 gap-10 items-start">
             <!-- Left side - Title and Description -->
             <div class="space-y-4">
-                <h2 class="font-display font-bold text-primary text-4xl">Onde comer</h2>
+                <h2 class="font-display font-bold text-primary text-4xl">{{ $t('eat.title') }}</h2>
                 <p class="font-serif text-primary text-2xl leading-[1.5]">
-                    A cerimónia é depois do almoço por isso convém comerem algo antes da igreja.
+                    {{ $t('eat.description') }}
                 </p>
             </div>
 
