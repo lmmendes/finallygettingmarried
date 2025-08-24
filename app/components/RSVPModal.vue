@@ -19,7 +19,7 @@
             <div class="overflow-y-auto p-8 space-y-8">
                             <!-- Title -->
             <div class="text-center">
-                <h2 class="font-display font-bold text-primary text-4xl italic">{{ $t('modal.title') }}</h2>
+                <h2 class="font-display font-bold text-primary text-4xl italic">{{ t('modal.title') }}</h2>
             </div>
 
                 <!-- Form -->
@@ -27,9 +27,9 @@
                     <!-- Name Section -->
                     <div class="space-y-4">
                                             <div>
-                        <h3 class="font-display font-bold text-primary text-2xl italic mb-2">{{ $t('modal.name.title') }}</h3>
+                        <h3 class="font-display font-bold text-primary text-2xl italic mb-2">{{ t('modal.name.title') }}</h3>
                         <p class="font-serif text-primary/70 text-base">
-                            {{ $t('modal.name.description') }}
+                            {{ t('modal.name.description') }}
                         </p>
                     </div>
                         
@@ -40,7 +40,7 @@
                                 type="text" 
                                 required
                                 class="w-full px-6 py-4 border border-primary/30 rounded-2xl font-serif text-primary text-lg focus:outline-none focus:border-primary focus:ring-0 transition-colors placeholder:text-primary/40 bg-white"
-                                :placeholder="$t('modal.name.placeholder')"
+                                :placeholder="t('modal.name.placeholder')"
                             />
                         </div>
 
@@ -50,7 +50,7 @@
                                 v-model="form.additionalGuests[index]"
                                 type="text"
                                 class="w-full px-6 py-4 border border-primary/30 rounded-2xl font-serif text-primary text-lg focus:outline-none focus:border-primary focus:ring-0 transition-colors placeholder:text-primary/40 bg-white"
-                                :placeholder="$t('modal.name.guest_placeholder')"
+                                :placeholder="t('modal.name.guest_placeholder')"
                             />
                             <button 
                                 type="button"
@@ -70,16 +70,16 @@
                             class="flex items-center gap-2 text-accent font-serif text-lg hover:text-accent/80 transition-colors"
                         >
                                                     <span class="text-xl">+</span>
-                        {{ $t('modal.name.add_guest') }}
+                        {{ t('modal.name.add_guest') }}
                         </button>
                     </div>
 
                     <!-- Attendance Confirmation -->
                     <div class="space-y-4">
                                             <div>
-                        <h3 class="font-display font-bold text-primary text-2xl italic mb-2">{{ $t('modal.attendance.title') }}</h3>
+                        <h3 class="font-display font-bold text-primary text-2xl italic mb-2">{{ t('modal.attendance.title') }}</h3>
                         <p class="font-serif text-primary/70 text-base">
-                            {{ $t('modal.attendance.description') }}
+                            {{ t('modal.attendance.description') }}
                         </p>
                     </div>
                         
@@ -92,7 +92,7 @@
                                     required
                                     class="w-5 h-5 text-accent border-2 border-primary/30 focus:ring-accent focus:ring-2 focus:ring-offset-2"
                                 />
-                                <span class="ml-4 font-serif text-primary text-lg">{{ $t('modal.attendance.yes') }}</span>
+                                <span class="ml-4 font-serif text-primary text-lg">{{ t('modal.attendance.yes') }}</span>
                             </label>
                             <label class="flex items-center p-4 border border-primary/30 rounded-2xl cursor-pointer hover:border-primary/50 transition-colors has-[:checked]:border-gray-400 has-[:checked]:bg-gray-50">
                                 <input 
@@ -102,7 +102,7 @@
                                     required
                                     class="w-5 h-5 text-gray-400 border-2 border-primary/30 focus:ring-gray-400 focus:ring-2 focus:ring-offset-2"
                                 />
-                                <span class="ml-4 font-serif text-primary text-lg">{{ $t('modal.attendance.no') }}</span>
+                                <span class="ml-4 font-serif text-primary text-lg">{{ t('modal.attendance.no') }}</span>
                             </label>
                         </div>
                     </div>
@@ -110,9 +110,9 @@
                     <!-- Dietary Restrictions (only if attending) -->
                     <div v-if="form.attendance === 'yes'" class="space-y-4">
                                             <div>
-                        <h3 class="font-display font-bold text-primary text-2xl italic mb-2">{{ $t('modal.dietary.title') }}</h3>
+                        <h3 class="font-display font-bold text-primary text-2xl italic mb-2">{{ t('modal.dietary.title') }}</h3>
                         <p class="font-serif text-primary/70 text-base">
-                            {{ $t('modal.dietary.description') }}
+                            {{ t('modal.dietary.description') }}
                         </p>
                     </div>
                         
@@ -120,15 +120,15 @@
                             v-model="form.dietary"
                             rows="3"
                             class="w-full px-6 py-4 border border-primary/30 rounded-2xl font-serif text-primary text-lg focus:outline-none focus:border-primary focus:ring-0 transition-colors resize-none placeholder:text-primary/40 bg-white"
-                            :placeholder="$t('modal.dietary.placeholder')"
+                            :placeholder="t('modal.dietary.placeholder')"
                         ></textarea>
                     </div>
 
                     <!-- Music Request (only if attending) -->
                     <div v-if="form.attendance === 'yes'" class="space-y-4">
                                             <div>
-                        <h3 class="font-display font-bold text-primary text-2xl italic mb-2">{{ $t('modal.music.title') }}</h3>
-                        <p class="font-serif text-primary/70 text-base" v-html="$t('modal.music.description')">
+                        <h3 class="font-display font-bold text-primary text-2xl italic mb-2">{{ t('modal.music.title') }}</h3>
+                        <p class="font-serif text-primary/70 text-base" v-html="t('modal.music.description')">
                         </p>
                     </div>
                         
@@ -136,16 +136,16 @@
                             v-model="form.musicRequest"
                             type="text"
                             class="w-full px-6 py-4 border border-primary/30 rounded-2xl font-serif text-primary text-lg focus:outline-none focus:border-primary focus:ring-0 transition-colors placeholder:text-primary/40 bg-white"
-                            :placeholder="$t('modal.music.placeholder')"
+                            :placeholder="t('modal.music.placeholder')"
                         />
                     </div>
 
                     <!-- Message to Bride and Groom -->
                     <div class="space-y-4">
                                             <div>
-                        <h3 class="font-display font-bold text-primary text-2xl italic mb-2">{{ $t('modal.message.title') }}</h3>
+                        <h3 class="font-display font-bold text-primary text-2xl italic mb-2">{{ t('modal.message.title') }}</h3>
                         <p class="font-serif text-primary/70 text-base">
-                            {{ $t('modal.message.description') }}
+                            {{ t('modal.message.description') }}
                         </p>
                     </div>
                         
@@ -153,7 +153,7 @@
                             v-model="form.message"
                             rows="4"
                             class="w-full px-6 py-4 border border-primary/30 rounded-2xl font-serif text-primary text-lg focus:outline-none focus:border-primary focus:ring-0 transition-colors resize-none placeholder:text-primary/40 bg-white"
-                            :placeholder="$t('modal.message.placeholder')"
+                            :placeholder="t('modal.message.placeholder')"
                         ></textarea>
                     </div>
 
@@ -164,7 +164,7 @@
                             :disabled="isSubmitting"
                             class="bg-olive text-white px-10 py-3 rounded-full font-display font-bold text-xl italic hover:bg-olive/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                            {{ isSubmitting ? $t('modal.submitting') : $t('modal.submit') }}
+                            {{ isSubmitting ? t('modal.submitting') : t('modal.submit') }}
                         </button>
                     </div>
                 </form>
@@ -174,6 +174,9 @@
 </template>
 
 <script setup lang="ts">
+// Import and use i18n composable
+const { t } = useI18n();
+
 interface RSVPForm {
     mainGuest: string;
     additionalGuests: string[];
@@ -240,11 +243,11 @@ const submitRSVP = async () => {
         closeModal();
         
         // Show success message (you could add a toast notification here)
-                            alert($t('modal.success'));
+                            alert(t('modal.success'));
         
     } catch (error) {
         console.error('Error submitting RSVP:', error);
-                            alert($t('modal.error'));
+                            alert(t('modal.error'));
     } finally {
         isSubmitting.value = false;
     }

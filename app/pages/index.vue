@@ -126,8 +126,38 @@
     isModalOpen.value = false;
   };
 
-  const handleRSVPSubmit = (data: any) => {
+  const handleRSVPSubmit = async (data: any) => {
     console.log('RSVP Data:', data);
-    // Here you would typically send the data to your backend
+    
+    try {
+      // Create the structured data for Google Apps Script
+      const formData = {
+        name: data.mainGuest,
+        attending: data.attendance, // 'yes' or 'no'
+        dietary_restrictions: data.dietary || '',
+        music: data.musicRequest || '',
+        message: data.message || '',
+        total_guests: (1 + data.additionalGuests.filter((guest: string) => guest.trim() !== '').length).toString(),
+        guests: data.additionalGuests.filter((guest: string) => guest.trim() !== ''),
+        submitted_at: new Date().toISOString()
+      };
+      
+      console.log('Sending to Google Apps Script:', formData);
+      
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxW49sBjI54dWx-mfEAd3m_jwzZBINia-CSLi_WoCi8Q6-8el8OeUR7-G77V0JD9WM/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      // Note: With no-cors mode, we can't read the response
+      console.log('RSVP request sent to Google Apps Script');
+      
+    } catch (error) {
+      console.error('Error submitting RSVP:', error);
+    }
   };
 </script>
