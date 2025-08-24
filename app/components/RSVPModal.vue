@@ -74,8 +74,41 @@
                         </button>
                     </div>
 
-                    <!-- Dietary Restrictions -->
+                    <!-- Attendance Confirmation -->
                     <div class="space-y-4">
+                        <div>
+                            <h3 class="font-display font-bold text-primary text-2xl italic mb-2">Vais conseguir comparecer?</h3>
+                            <p class="font-serif text-primary/70 text-base">
+                                Confirma se vais conseguir estar presente no nosso grande dia.
+                            </p>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <label class="flex items-center p-4 border border-primary/30 rounded-2xl cursor-pointer hover:border-primary/50 transition-colors has-[:checked]:border-accent has-[:checked]:bg-accent/5">
+                                <input 
+                                    v-model="form.attendance" 
+                                    type="radio" 
+                                    value="yes" 
+                                    required
+                                    class="w-5 h-5 text-accent border-2 border-primary/30 focus:ring-accent focus:ring-2 focus:ring-offset-2"
+                                />
+                                <span class="ml-4 font-serif text-primary text-lg">Sim, estarei presente! 🎉</span>
+                            </label>
+                            <label class="flex items-center p-4 border border-primary/30 rounded-2xl cursor-pointer hover:border-primary/50 transition-colors has-[:checked]:border-gray-400 has-[:checked]:bg-gray-50">
+                                <input 
+                                    v-model="form.attendance" 
+                                    type="radio" 
+                                    value="no" 
+                                    required
+                                    class="w-5 h-5 text-gray-400 border-2 border-primary/30 focus:ring-gray-400 focus:ring-2 focus:ring-offset-2"
+                                />
+                                <span class="ml-4 font-serif text-primary text-lg">Infelizmente não poderei comparecer</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Dietary Restrictions (only if attending) -->
+                    <div v-if="form.attendance === 'yes'" class="space-y-4">
                         <div>
                             <h3 class="font-display font-bold text-primary text-2xl italic mb-2">Restrições alimentares</h3>
                             <p class="font-serif text-primary/70 text-base">
@@ -91,8 +124,8 @@
                         ></textarea>
                     </div>
 
-                    <!-- Music Request -->
-                    <div class="space-y-4">
+                    <!-- Music Request (only if attending) -->
+                    <div v-if="form.attendance === 'yes'" class="space-y-4">
                         <div>
                             <h3 class="font-display font-bold text-primary text-2xl italic mb-2">Uma música que queres ouvir na pista de dança</h3>
                             <p class="font-serif text-primary/70 text-base">
@@ -106,6 +139,23 @@
                             class="w-full px-6 py-4 border border-primary/30 rounded-2xl font-serif text-primary text-lg focus:outline-none focus:border-primary focus:ring-0 transition-colors placeholder:text-primary/40 bg-white"
                             placeholder="Taylor Swift"
                         />
+                    </div>
+
+                    <!-- Message to Bride and Groom -->
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="font-display font-bold text-primary text-2xl italic mb-2">Mensagem para os noivos</h3>
+                            <p class="font-serif text-primary/70 text-base">
+                                Deixa uma mensagem carinhosa para a Sónia e o Luís (opcional).
+                            </p>
+                        </div>
+                        
+                        <textarea 
+                            v-model="form.message"
+                            rows="4"
+                            class="w-full px-6 py-4 border border-primary/30 rounded-2xl font-serif text-primary text-lg focus:outline-none focus:border-primary focus:ring-0 transition-colors resize-none placeholder:text-primary/40 bg-white"
+                            placeholder="Leste bem o Luís é (opcional)... Parabéns pelo vosso casamento! Desejo-vos muita felicidade..."
+                        ></textarea>
                     </div>
 
                     <!-- Submit Button -->
@@ -129,7 +179,9 @@ interface RSVPForm {
     mainGuest: string;
     additionalGuests: string[];
     dietary: string;
+    attendance: 'yes' | 'no' | '';
     musicRequest: string;
+    message: string;
 }
 
 interface Props {
@@ -150,7 +202,9 @@ const form = ref<RSVPForm>({
     mainGuest: '',
     additionalGuests: [],
     dietary: '',
-    musicRequest: ''
+    attendance: '',
+    musicRequest: '',
+    message: ''
 });
 
 const addGuest = () => {
@@ -178,7 +232,9 @@ const submitRSVP = async () => {
             mainGuest: '',
             additionalGuests: [],
             dietary: '',
-            musicRequest: ''
+            attendance: '',
+            musicRequest: '',
+            message: ''
         };
         
         // Close modal
