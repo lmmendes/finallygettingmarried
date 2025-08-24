@@ -1,25 +1,16 @@
 <script setup lang="ts">
 import { useCountdown } from "~/composables/useCountdown";
-import RSVPModal from "~/components/RSVPModal.vue";
 
 const target = new Date("2026-05-23T15:00:00+01:00"); // 23 Maio 2026 15:00
 const { remaining } = useCountdown(target);
 
-// Modal state
-const isModalOpen = ref(false);
+// Emit event to parent component
+const emit = defineEmits<{
+    'open-modal': []
+}>();
 
 const openModal = () => {
-    isModalOpen.value = true;
-};
-
-const closeModal = () => {
-    isModalOpen.value = false;
-};
-
-const handleRSVPSubmit = (data: any) => {
-    console.log('RSVP Data:', data);
-    // Here you would typically send the data to your backend
-    // For now, we'll just log it
+    emit('open-modal');
 };
 </script>
 
@@ -63,12 +54,5 @@ const handleRSVPSubmit = (data: any) => {
                 </button>
             </div>
         </div>
-
-        <!-- RSVP Modal -->
-        <RSVPModal 
-            :is-open="isModalOpen" 
-            @close="closeModal"
-            @submit="handleRSVPSubmit"
-        />
     </section>
 </template>
