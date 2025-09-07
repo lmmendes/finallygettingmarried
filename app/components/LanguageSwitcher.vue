@@ -1,14 +1,14 @@
 <template>
-  <div class="relative" @keydown.escape="open=false">
+  <div ref="el" class="relative" @keydown.escape="open=false">
     <button
-        class="flex items-center gap-2 rounded-full border border-gray-300 bg-bg-light px-3 py-2 hover:bg-white transition-colors"
+        class="flex items-center gap-2 rounded-full border border-secondary px-3 py-2 hover:bg-secondary/20 transition-colors"
         @click="open = !open"
         :aria-expanded="open"
         aria-haspopup="listbox"
     >
       <span class="text-base leading-none">{{ current.flag }}</span>
       <span class="text-sm">{{ current.code.toUpperCase() }}</span>
-      <svg class="size-4 opacity-60" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.086l3.71-3.855a.75.75 0 1 1 1.08 1.04l-4.24 4.41a.75.75 0 0 1-1.08 0L5.21 8.27a.75.75 0 0 1 .02-1.06z"/></svg>
+      <svg class="size-4 fill-primary" viewBox="0 0 20 20"><path d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.086l3.71-3.855a.75.75 0 1 1 1.08 1.04l-4.24 4.41a.75.75 0 0 1-1.08 0L5.21 8.27a.75.75 0 0 1 .02-1.06z"/></svg>
     </button>
 
     <ul

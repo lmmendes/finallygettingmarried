@@ -1,7 +1,7 @@
 <template>
     <div class="min-h-screen bg-white">
         <!-- Hero Section with full viewport height -->
-        <div class="flex flex-col relative mx-4 mb-4 rounded-b-3xl overflow-hidden" style="height: calc(100vh - 16px);">
+        <div class="hero-section flex flex-col relative mx-4 mb-4 rounded-b-3xl overflow-hidden" style="height: calc(100vh - 16px);">
             <!-- Background images with crossfade effect -->
             <div 
                 v-for="(image, index) in carousselImages" 
@@ -14,14 +14,15 @@
             <div class="absolute inset-0 bg-white opacity-90"></div>
             <!-- Content -->
             <div class="relative z-10 flex flex-col h-full">
-            <!-- Header -->
-            <header class="flex justify-between items-start p-4 md:p-6">
-                <div>
-                    <h1 class="font-display text-primary text-xl leading-tight">{{ $t('brand.title') }}</h1>
-                     <p class="font-serif font-regular text-primary text-[10px] mt-0">{{ $t('brand.subtitle') }}</p>
-                </div>
-                <LanguageSwitcher />
-            </header>
+
+              <!-- Header -->
+              <header class="flex justify-end items-end px-4 pt-4 md:px-6 md:pt-6">
+                 <!-- <div>
+                      <h1 class="font-display text-primary text-xl leading-tight">{{ $t('brand.title') }}</h1>
+                       <p class="font-serif font-regular text-primary text-[10px] mt-0">{{ $t('brand.subtitle') }}</p>
+                  </div> -->
+                  <LanguageSwitcher />
+              </header>
 
             <!-- Hero CTA Section - takes remaining space -->
             <section class="flex-1 flex flex-col justify-center items-center text-center px-4 md:px-6">
