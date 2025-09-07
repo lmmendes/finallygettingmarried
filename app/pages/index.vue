@@ -159,13 +159,16 @@
                 </div> -->
 
                 <!-- About Us Section -->
-                <AboutUsSection />
+                <div class="mt-[104px]">
+                    <AboutUsSection />
+                </div>
 
 
 
                 <!-- Footer -->
                 <footer class="text-center py-8">
-                    <p class="font-display font-bold text-primary text-sm">{{ $t('footer.text') }}</p>
+                    <div class="w-16 h-px bg-primary mx-auto mb-4"></div>
+                    <p class="font-serif text-primary text-sm">{{ $t('footer.text') }}</p>
                 </footer>
             </div>
         </div>

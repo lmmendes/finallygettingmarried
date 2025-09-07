@@ -56,33 +56,33 @@ const getHotelImage = (hotelName: string): string => {
                         rel="noopener"
                         class="hover:bg-bg-card rounded-xl p-4 flex items-center gap-4 transition-colors cursor-pointer block"
                     >
-                    <!-- Hotel Image -->
-                    <div class="w-20 h-20 flex-shrink-0">
-                        <img 
-                            :src="getHotelImage(h.name)" 
-                            :alt="h.name"
-                            class="w-full h-full object-cover rounded-lg"
-                        />
-                    </div>
-                    
-                    <!-- Content -->
-                    <div class="flex-1 space-y-1">
-                        <!-- Card text -->
-                        <div class="space-y-1">
-                            <h3 class="font-display text-primary text-2xl">{{ h.name }}</h3>
-                            <p class="font-serif text-primary text-base">
-                                {{ h.area }} - {{ h.driveMins }}min
-                            </p>
+                        <!-- Hotel Image -->
+                        <div class="w-20 h-20 flex-shrink-0">
+                            <img 
+                                :src="getHotelImage(h.name)" 
+                                :alt="h.name"
+                                class="w-full h-full object-cover rounded-lg"
+                            />
                         </div>
+                        
+                        <!-- Content -->
+                        <div class="flex-1 space-y-1">
+                            <!-- Card text -->
+                            <div class="space-y-1">
+                                <h3 class="font-display text-primary text-2xl">{{ h.name }}</h3>
+                                <p class="font-serif text-primary text-base">
+                                    {{ h.area }} - {{ h.driveMins }}min
+                                </p>
+                            </div>
 
-                        <!-- Booking.com -->
-                        <div class="flex gap-1 text-sm">
-                            <span class="inline-flex items-center gap-2 font-serif text-accent-light text-sm underline">
-                                {{ h.bookingUrl ? 'Booking.com' : 'Get directions' }}
-                            </span>
-                            <span class="material-symbols-outlined text-base text-accent-light">arrow_forward</span>
+                            <!-- Booking.com -->
+                            <div class="flex gap-1 text-sm">
+                                <span class="inline-flex items-center gap-2 font-serif text-accent-light text-sm underline">
+                                    {{ h.bookingUrl ? 'Booking.com' : 'Get directions' }}
+                                </span>
+                                <span class="material-symbols-outlined text-base text-accent-light">arrow_forward</span>
+                            </div>
                         </div>
-                    </div>
                     </a>
                 </template>
             </div>
