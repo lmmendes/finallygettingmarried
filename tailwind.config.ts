@@ -13,11 +13,16 @@ export default <Partial<Config>>{
     extend: {
       colors: {
         primary: "#716C3B", // Main text color from Figma
-        accent: "#D39471", // Link/accent color from Figma  
+        secondary: "#ACAB92", // Light green - sage
+        accent: "#8D593A", // Rust  
+        "accent-light": "#D39471", // Terracota
+        "accent-mustard": "#BD8F48",
+        "accent-sunset": "#DAB79A",
         "bg-light": "#F7F8FC", // Light background from Figma
         "bg-card": "#F9F4EA", // Card background from Figma
         olive: "#9C9E80", // Button/accent color from Figma
         ink: "#2a2a2a",
+        white: "#FFFFFF",
       },
       fontFamily: {
         serif: ['Lora', "serif"],

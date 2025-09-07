@@ -1,26 +1,65 @@
 <template>
     <div class="min-h-screen bg-white">
         <!-- Hero Section with full viewport height -->
-        <div class="h-screen flex flex-col bg-bg-light">
+        <div class="flex flex-col relative mx-4 mb-4 rounded-b-3xl overflow-hidden" style="height: calc(100vh - 16px);">
+            <!-- Background images with crossfade effect -->
+            <div 
+                v-for="(image, index) in carousselImages" 
+                :key="index"
+                class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out"
+                :class="{ 'opacity-100': index === currentImageIndex, 'opacity-0': index !== currentImageIndex }"
+                :style="{ backgroundImage: `url(${image})` }"
+            ></div>
+            <!-- White overlay with 80% opacity -->
+            <div class="absolute inset-0 bg-white opacity-90"></div>
+            <!-- Content -->
+            <div class="relative z-10 flex flex-col h-full">
             <!-- Header -->
             <header class="flex justify-between items-start p-4 md:p-6">
                 <div>
                     <h1 class="font-display text-primary text-xl leading-tight">{{ $t('brand.title') }}</h1>
-                    <p class="font-serif font-regular text-primary text-xxs mt-1">{{ $t('brand.subtitle') }}</p>
+                     <p class="font-serif font-regular text-primary text-[10px] mt-0">{{ $t('brand.subtitle') }}</p>
                 </div>
                 <LanguageSwitcher />
             </header>
 
             <!-- Hero CTA Section - takes remaining space -->
             <section class="flex-1 flex flex-col justify-center items-center text-center px-4 md:px-6">
-                <h2 class="font-display font-bold text-primary text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none mb-6">
-                    {{ $t('hero.title') }}
+                <!-- Hero Rings Image -->
+                <div class="mb-0">
+                    <img 
+                        src="/images/design/hero-rings.png" 
+                        alt="Wedding rings" 
+                        class="w-[180px] h-auto mx-auto opacity-90"
+                    />
+                </div>
+                
+                <!-- Hero Title -->
+                <h2 class="font-display text-primary text-5xl sm:text-5xl md:text-6xl lg:text-7xl leading-none mb-6">
+                    {{ $t('hero.title') }} <span class='block'>{{ $t('hero.subtitle') }}</span>
                 </h2>
-                <p class="font-serif font-light text-primary text-lg md:text-xl mb-10">{{ $t('hero.date') }}</p>
-                <button @click="openModal" class="inline-block border border-primary text-primary px-8 py-4 rounded-full font-display font-bold text-xl hover:bg-primary/10 transition-colors">
+                
+                <!-- Date with decorative swirls -->
+                <div class="flex items-center justify-center gap-6 mb-12">
+                    <img 
+                        src="/images/design/hero-swirls.png" 
+                        alt="Decorative swirl" 
+                        class="w-8 h-auto opacity-60"
+                    />
+                    <p class="font-serif font-regular text-accent text-lg md:text-xl">{{ $t('hero.date') }}</p>
+                    <img 
+                        src="/images/design/hero-swirls.png" 
+                        alt="Decorative swirl" 
+                        class="w-8 h-auto opacity-60 scale-x-[-1]"
+                    />
+                </div>
+
+                <!-- RSVP CTA -->
+                <button @click="openModal" class="inline-block bg-accent-light text-white px-8 py-4 rounded-full font-serif text-base hover:bg-accent-light/80 transition-colors">
                     {{ $t('hero.cta') }}
                 </button>
             </section>
+            </div>
         </div>
 
         <!-- Rest of sections with white background -->
@@ -152,6 +191,34 @@
   import AboutUsSection from '~/components/sections/AboutUsSection.vue';
   import RSVPModal from '~/components/RSVPModal.vue';
   import { useCountdown } from "~/composables/useCountdown";
+
+  // Background image carousel from caroussel folder
+  const carousselImages = [
+    '/images/caroussel/gallery-1.png',
+    '/images/caroussel/gallery-2.png',
+    '/images/caroussel/gallery-3.png',
+    '/images/caroussel/gallery-6.png',
+    '/images/caroussel/gallery-7.png',
+    '/images/caroussel/gallery-8.png',
+    '/images/caroussel/gallery-9.png'
+  ];
+  
+  const currentImageIndex = ref(0);
+  
+  // Change image every 5 seconds with smooth crossfade
+  let imageInterval: NodeJS.Timeout;
+  
+  onMounted(() => {
+    imageInterval = setInterval(() => {
+      currentImageIndex.value = (currentImageIndex.value + 1) % carousselImages.length;
+    }, 5000);
+  });
+  
+  onUnmounted(() => {
+    if (imageInterval) {
+      clearInterval(imageInterval);
+    }
+  });
 
   // Countdown setup
   const target = new Date("2026-05-23T15:00:00+01:00"); // 23 Maio 2026 15:00
