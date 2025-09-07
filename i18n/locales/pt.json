@@ -53,5 +53,17 @@
   "modal.submit": "Confirmar",
   "modal.submitting": "A enviar...",
   "modal.success": "Obrigado! A sua confirmação foi enviada com sucesso.",
-  "modal.error": "Erro ao enviar confirmação. Por favor, tente novamente."
+  "modal.error": "Erro ao enviar confirmação. Por favor, tente novamente.",
+  "auth.title": "Bem-vindos ao nosso casamento!",
+  "auth.subtitle": "Para aceder ao site, responde a uma pergunta simples sobre nós.",
+  "auth.placeholder": "Escreve a tua resposta aqui...",
+  "auth.submit": "Verificar",
+  "auth.checking": "A verificar...",
+  "auth.error": "Resposta incorreta. Tenta novamente!",
+  "auth.questions.bride_name": "Qual é o nome da noiva?",
+  "auth.questions.groom_name": "Qual é o nome do noivo?",
+  "auth.questions.wedding_date": "Quando é o casamento?",
+  "auth.questions.wedding_location": "Onde é o casamento?",
+  "auth.questions.church_name": "Qual é o nome da igreja?",
+  "auth.questions.cat_name": "Qual é o nome do verdadeiro amor da Sónia — ou seja, o nome do gato? 🐱💕"
 }

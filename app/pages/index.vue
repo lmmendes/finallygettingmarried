@@ -8,7 +8,16 @@
                     <h1 class="font-display font-bold text-primary text-base leading-tight">{{ $t('brand.title') }}</h1>
                     <p class="font-serif font-light text-primary text-xs mt-1">{{ $t('brand.subtitle') }}</p>
                 </div>
-                <LanguageSwitcher />
+                <div class="flex items-center gap-4">
+                    <button 
+                        @click="clearAuth" 
+                        class="text-xs text-gray-500 hover:text-red-500 transition-colors"
+                        title="Clear authentication (for testing)"
+                    >
+                        🚪 Logout
+                    </button>
+                    <LanguageSwitcher />
+                </div>
             </header>
 
             <!-- Hero CTA Section -->
@@ -145,7 +154,9 @@
 </template>
 
 <script setup lang="ts">
-  definePageMeta({ hideGlobalHeader: true })
+  definePageMeta({ 
+    hideGlobalHeader: true
+  })
   import HeroSection from '~/components/sections/HeroSection.vue';
   import DetailsSection from '~/components/sections/DetailsSection.vue';
   import StaySection from '~/components/sections/StaySection.vue';
@@ -154,9 +165,27 @@
   import RSVPModal from '~/components/RSVPModal.vue';
   import { useCountdown } from "~/composables/useCountdown";
 
+  // Auth setup
+  const { setAuthenticated, isAuthenticated } = useAuth()
+
+  // Check authentication on mount
+  onMounted(() => {
+    if (!isAuthenticated.value) {
+      console.log('User not authenticated, redirecting to auth page')
+      navigateTo('/auth')
+    }
+  })
+
   // Countdown setup
   const target = new Date("2026-05-23T15:00:00+01:00"); // 23 Maio 2026 15:00
   const { remaining } = useCountdown(target);
+
+  // Clear authentication (for testing)
+  const clearAuth = () => {
+    setAuthenticated(false)
+    console.log('Authentication cleared, redirecting to auth page')
+    navigateTo('/auth')
+  }
 
   // Modal state management
   const isModalOpen = ref(false);
