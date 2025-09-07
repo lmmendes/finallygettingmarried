@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky top-0 z-20 bg-neutral-50/80 backdrop-blur">
+  <header ref="el" class="sticky top-0 z-20 bg-neutral-50/80 backdrop-blur">
     <div class="mx-auto max-w-6xl px-4 h-16 flex items-center justify-between">
       <!-- Brand (two lines) -->
       <NuxtLink to="/" class="group">
@@ -40,7 +40,15 @@
 </template>
 
 <script setup lang="ts">
+import { onClickOutside } from '#imports'
+
 const open = ref(false)
+const el = ref<HTMLElement | null>(null)
+
+onMounted(() => {
+  if (el.value) onClickOutside(el, () => (open.value = false))
+})
+
 watchEffect(() => {
   if (!open.value) return
   const onEsc = (e: KeyboardEvent) => e.key === 'Escape' && (open.value = false)

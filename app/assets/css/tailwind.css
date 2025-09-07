@@ -4,7 +4,7 @@
 
 @layer base {
     html {
-        @apply scroll-smooth bg-neutral-50 text-ink font-serif;
+        @apply scroll-smooth bg-white text-ink font-serif;
     }
     h1,
     h2,
@@ -12,4 +12,27 @@
     h4 {
         @apply text-[#605F4B] font-display;
     }
+    a {
+        @apply no-underline;
+    }
+    .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-scroll {
+    animation: scroll 30s linear infinite;
 }
