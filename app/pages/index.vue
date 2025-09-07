@@ -73,7 +73,46 @@
                 </div>
 
                 <!-- Countdown Section -->
-                <CountdownSection @open-modal="openModal" />
+                <section class="mx-8">
+                    <div class="bg-olive rounded-3xl p-8 text-center relative overflow-hidden">
+                        <!-- Hand-drawn squiggly border - single internal decoration -->
+                        <div class="absolute inset-0 pointer-events-none">
+                            <img 
+                                src="/images/design/squigly-line.svg" 
+                                alt="Decorative border" 
+                                class="absolute inset-4 w-auto h-auto opacity-80"
+                                style="filter: brightness(0) invert(1); width: calc(100% - 2rem); height: calc(100% - 2rem);"
+                            />
+                        </div>
+                        
+                        <!-- Content -->
+                        <div class="relative z-10">
+                            <div class="flex items-center justify-center gap-8 text-5xl md:text-6xl font-display font-bold text-white mb-8">
+                                <div class="text-center">
+                                    <div class="w-26 text-center">{{ String(remaining.years).padStart(2, '0') }}</div>
+                                    <div class="text-base font-serif font-light text-white/80 mt-1">{{ $t('countdown.years') }}</div>
+                                </div>
+                                <span class="text-white">:</span>
+                                <div class="text-center">
+                                    <div class="w-26 text-center">{{ String(remaining.months).padStart(2, '0') }}</div>
+                                    <div class="text-base font-serif font-light text-white/80 mt-1">{{ $t('countdown.months') }}</div>
+                                </div>
+                                <span class="text-white">:</span>
+                                <div class="text-center">
+                                    <div class="w-26 text-center">{{ String(remaining.days).padStart(2, '0') }}</div>
+                                    <div class="text-base font-serif font-light text-white/80 mt-1">{{ $t('countdown.days') }}</div>
+                                </div>
+                            </div>
+
+                            <button
+                                @click="openModal"
+                                class="inline-block bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-full font-display font-bold text-xl hover:bg-white/30 transition-colors shadow-lg border border-white/30"
+                            >
+                                {{ $t('countdown.cta') }}
+                            </button>
+                        </div>
+                    </div>
+                </section>
 
                 <!-- Decorative separator -->
                 <div class="flex justify-center py-8">
@@ -112,8 +151,12 @@
   import StaySection from '~/components/sections/StaySection.vue';
   import EatSection from '~/components/sections/EatSection.vue';
   import AboutUsSection from '~/components/sections/AboutUsSection.vue';
-  import CountdownSection from '~/components/sections/CountdownSection.vue';
   import RSVPModal from '~/components/RSVPModal.vue';
+  import { useCountdown } from "~/composables/useCountdown";
+
+  // Countdown setup
+  const target = new Date("2026-05-23T15:00:00+01:00"); // 23 Maio 2026 15:00
+  const { remaining } = useCountdown(target);
 
   // Modal state management
   const isModalOpen = ref(false);
