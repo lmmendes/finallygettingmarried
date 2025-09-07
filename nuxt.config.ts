@@ -28,8 +28,8 @@ export default defineNuxtConfig({
         },
         {
           rel: "stylesheet",
-          // Elegant serif + friendly sans + optional script
-          href: "https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap",
+          // Elegant serif + beautiful script font
+          href: "https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap",
         },
       ],
       meta: [

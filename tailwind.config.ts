@@ -12,16 +12,16 @@ export default <Partial<Config>>{
   theme: {
     extend: {
       colors: {
-        primary: "#605F4B", // Main text color from Figma
-        accent: "#C47457", // Link/accent color from Figma  
+        primary: "#716C3B", // Main text color from Figma
+        accent: "#D39471", // Link/accent color from Figma  
         "bg-light": "#F7F8FC", // Light background from Figma
         "bg-card": "#F9F4EA", // Card background from Figma
         olive: "#9C9E80", // Button/accent color from Figma
         ink: "#2a2a2a",
       },
       fontFamily: {
-        serif: ['Newsreader', "serif"],
-        display: ['Caveat', 'cursive']
+        serif: ['Lora', "serif"],
+        display: ['Great Vibes', 'cursive']
       },
       boxShadow: {
         soft: "0 6px 24px rgba(0,0,0,.06)",

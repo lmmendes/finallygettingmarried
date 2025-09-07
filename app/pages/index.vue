@@ -1,22 +1,22 @@
 <template>
     <div class="min-h-screen bg-white">
-        <!-- Hero Section with grey background -->
-        <div class="max-w-5xl mx-auto bg-bg-light rounded-[32px] p-4">
+        <!-- Hero Section with full viewport height -->
+        <div class="h-screen flex flex-col bg-bg-light">
             <!-- Header -->
-            <header class="flex justify-between items-start p-4">
+            <header class="flex justify-between items-start p-4 md:p-6">
                 <div>
-                    <h1 class="font-display font-bold text-primary text-base leading-tight">{{ $t('brand.title') }}</h1>
-                    <p class="font-serif font-light text-primary text-xs mt-1">{{ $t('brand.subtitle') }}</p>
+                    <h1 class="font-display text-primary text-xl leading-tight">{{ $t('brand.title') }}</h1>
+                    <p class="font-serif font-regular text-primary text-xxs mt-1">{{ $t('brand.subtitle') }}</p>
                 </div>
                 <LanguageSwitcher />
             </header>
 
-            <!-- Hero CTA Section -->
-            <section class="text-center py-20">
-                <h2 class="font-display font-bold text-primary text-5xl md:text-6xl leading-none mb-6">
+            <!-- Hero CTA Section - takes remaining space -->
+            <section class="flex-1 flex flex-col justify-center items-center text-center px-4 md:px-6">
+                <h2 class="font-display font-bold text-primary text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none mb-6">
                     {{ $t('hero.title') }}
                 </h2>
-                <p class="font-serif font-light text-primary text-xl mb-10">{{ $t('hero.date') }}</p>
+                <p class="font-serif font-light text-primary text-lg md:text-xl mb-10">{{ $t('hero.date') }}</p>
                 <button @click="openModal" class="inline-block border border-primary text-primary px-8 py-4 rounded-full font-display font-bold text-xl hover:bg-primary/10 transition-colors">
                     {{ $t('hero.cta') }}
                 </button>
@@ -146,7 +146,6 @@
 
 <script setup lang="ts">
   definePageMeta({ hideGlobalHeader: true })
-  import HeroSection from '~/components/sections/HeroSection.vue';
   import DetailsSection from '~/components/sections/DetailsSection.vue';
   import StaySection from '~/components/sections/StaySection.vue';
   import EatSection from '~/components/sections/EatSection.vue';
