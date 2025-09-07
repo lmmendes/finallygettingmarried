@@ -1,6 +1,16 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 flex items-center justify-center p-4">
-    <div class="max-w-md w-full">
+  <div class="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 flex items-center justify-center p-4 relative overflow-hidden">
+    <!-- Random Wedding Emojis Background -->
+    <div 
+      v-for="(emoji, index) in backgroundEmojis" 
+      :key="index"
+      class="absolute text-4xl opacity-20 pointer-events-none animate-pulse"
+      :style="emoji.style"
+    >
+      {{ emoji.char }}
+    </div>
+    
+    <div class="max-w-md w-full relative z-10">
       <!-- Wedding Logo/Title -->
       <div class="text-center mb-8">
         <h1 class="font-display font-bold text-primary text-3xl mb-2">{{ $t('brand.title') }}</h1>
@@ -52,10 +62,6 @@
           <LanguageSwitcher />
         </div>
       </div>
-
-      <!-- Decorative elements -->
-      <div class="absolute top-10 left-10 w-20 h-20 bg-primary/5 rounded-full"></div>
-      <div class="absolute bottom-10 right-10 w-32 h-32 bg-primary/5 rounded-full"></div>
     </div>
   </div>
 </template>
@@ -78,9 +84,43 @@ const error = ref(false)
 const isLoading = ref(false)
 const currentQuestion = ref<{ question: string; answers: string[] }>({ question: '', answers: [] })
 
-// Initialize question on client side
+// Wedding emojis for background
+const weddingEmojis = ['💒', '💍', '👰', '🤵', '💐', '🎂', '🍾', '💖', '💗', '💘', '🎉', '🎊', '✨', '🌟', '💫', '🕊️', '🌹', '🌺', '🌸', '🌻', '🐱', '🐈', '🐈‍⬛']
+
+// Generate random background emojis
+const backgroundEmojis = ref<Array<{ char: string; style: string }>>([])
+
+const generateBackgroundEmojis = () => {
+  const emojis = []
+  const numEmojis = Math.floor(Math.random() * 8) + 5 // 5-12 emojis
+  
+  for (let i = 0; i < numEmojis; i++) {
+    const randomEmoji = weddingEmojis[Math.floor(Math.random() * weddingEmojis.length)]
+    if (randomEmoji) {
+      const randomX = Math.floor(Math.random() * 100) // 0-100%
+      const randomY = Math.floor(Math.random() * 100) // 0-100%
+      const randomRotation = Math.floor(Math.random() * 360) // 0-360 degrees
+      const randomScale = 0.5 + Math.random() * 1.5 // 0.5-2x scale
+      
+      emojis.push({
+        char: randomEmoji,
+        style: `
+          left: ${randomX}%;
+          top: ${randomY}%;
+          transform: rotate(${randomRotation}deg) scale(${randomScale});
+          animation-delay: ${Math.random() * 2}s;
+        `
+      })
+    }
+  }
+  
+  backgroundEmojis.value = emojis
+}
+
+// Initialize question and emojis on client side
 onMounted(() => {
   currentQuestion.value = getRandomQuestion()
+  generateBackgroundEmojis()
 })
 
 // Handle form submission
@@ -101,6 +141,8 @@ const handleSubmit = async () => {
     userAnswer.value = ''
     // Get a new random question for next attempt
     currentQuestion.value = getRandomQuestion()
+    // Generate new random emojis for the background
+    generateBackgroundEmojis()
   }
   
   isLoading.value = false
@@ -123,3 +165,33 @@ onMounted(() => {
   }
 })
 </script>
+
+<style scoped>
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-15px) scale(1.1); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+}
+
+.animate-pulse {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse:nth-child(odd) {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.animate-pulse:nth-child(3n) {
+  animation: wiggle 4s ease-in-out infinite;
+}
+</style>
