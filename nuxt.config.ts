@@ -31,6 +31,11 @@ export default defineNuxtConfig({
           // Elegant serif + beautiful script font
           href: "https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap",
         },
+        {
+          rel: "stylesheet",
+          // Google Material Icons
+          href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200",
+        },
       ],
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },

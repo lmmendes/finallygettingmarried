@@ -18,11 +18,12 @@ export default <Partial<Config>>{
         "accent-light": "#D39471", // Terracota
         "accent-mustard": "#BD8F48",
         "accent-sunset": "#DAB79A",
+        "accent-blue": "#E2EBE6",
         "bg-light": "#F7F8FC", // Light background from Figma
         "bg-card": "#F9F4EA", // Card background from Figma
         olive: "#9C9E80", // Button/accent color from Figma
         ink: "#2a2a2a",
-        white: "#FFFFFF",
+        white: "#FFFCF6",
       },
       fontFamily: {
         serif: ['Lora', "serif"],

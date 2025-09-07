@@ -10,9 +10,7 @@
                 @click="closeModal"
                 class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-primary/60 hover:text-primary transition-colors rounded-full border border-primary/20 hover:border-primary/40 z-10"
             >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
+                <span class="material-symbols-outlined text-lg text-accent-light">close</span>
             </button>
 
             <!-- Modal Content -->
@@ -57,9 +55,7 @@
                                 @click="removeGuest(index)"
                                 class="absolute right-4 top-1/2 -translate-y-1/2 text-primary/40 hover:text-red-500 transition-colors"
                             >
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                </svg>
+                                <span class="material-symbols-outlined text-lg text-accent-light">close</span>
                             </button>
                         </div>
 

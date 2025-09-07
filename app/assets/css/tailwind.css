@@ -4,7 +4,7 @@
 
 @layer base {
     html {
-        @apply scroll-smooth bg-neutral-50 text-ink font-serif;
+        @apply scroll-smooth bg-white text-ink font-serif;
     }
     h1,
     h2,
@@ -13,6 +13,13 @@
         @apply text-[#605F4B] font-display;
     }
     a {
-        @apply underline;
+        @apply no-underline;
+    }
+    .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
     }
 }

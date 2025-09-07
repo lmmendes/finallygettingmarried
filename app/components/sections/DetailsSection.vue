@@ -14,7 +14,7 @@
             <div class="space-y-10">
                         <!-- Wedding Details Text -->
                         <div class="space-y-4">
-                            <p class="font-serif text-accent-light text-2xl leading-[1.5]" v-html="$t('details.description')">
+                            <p class="font-serif text-accent-light text-3xl leading-[1.5]" v-html="$t('details.description')">
                             </p>
                         </div>
 
@@ -28,12 +28,16 @@
                         </div>
                         <div class="space-y-1">
                             <p class="font-serif text-primary text-base">{{ $t('details.ceremony.location') }}</p>
-                            <a href="https://maps.google.com" target="_blank" rel="noopener" class="inline-flex items-center gap-2 font-serif text-accent-light text-sm hover:underline">
-                                {{ $t('details.ceremony.directions') }}
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <div class="inline-flex items-center gap-1">
+                                <a 
+                                    href="https://maps.google.com" 
+                                    target="_blank" 
+                                    rel="noopener" 
+                                    class="font-serif text-accent-light text-sm underline">
+                                    {{ $t('details.ceremony.directions') }}
+                                </a>
+                                <span class="material-symbols-outlined text-base text-accent-light">arrow_forward</span>
+                            </div>
                         </div>
                     </div>
 
@@ -46,12 +50,15 @@
                         <div class="space-y-1">
                             <p class="font-serif text-primary text-base" v-html="$t('details.reception.location')">
                             </p>
-                            <a href="https://maps.google.com" target="_blank" rel="noopener" class="inline-flex items-center gap-2 font-serif text-accent-light text-sm hover:underline">
-                                {{ $t('details.reception.directions') }}
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </a>
+                            <div class="inline-flex items-center gap-1">
+                                <a 
+                                    href="https://maps.google.com" 
+                                    target="_blank" rel="noopener" 
+                                    class="font-serif text-accent-light text-sm underline">
+                                    {{ $t('details.reception.directions') }}
+                                </a>
+                                <span class="material-symbols-outlined text-base text-accent-light">arrow_forward</span>
+                            </div>
                         </div>
                     </div>
                 </div>
