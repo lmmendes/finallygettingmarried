@@ -65,16 +65,16 @@
 
         <!-- Rest of sections with white background -->
         <div class="max-w-5xl mx-auto bg-white px-4">
-            <div class="space-y-20 pt-8">
+            <div class="space-y-20 pt-[104px]">
 
                 <!-- Decorative Separator -->
-                <div class="flex justify-center py-8">
+                <!--<div class="flex justify-center py-8">
                     <img 
                         src="/images/design/separator.svg" 
                         alt="Wedding decoration separator" 
                         class="w-16 h-auto opacity-80"
                     />
-                </div>
+                </div>-->
 
                 <!-- Wedding Details Section -->
                 <DetailsSection />
