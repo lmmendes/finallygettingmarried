@@ -34,7 +34,7 @@
   "modal.title": "RSVP",
   "modal.name.title": "Name",
   "modal.name.description": "Write your name and the names of everyone you're bringing (if applicable).",
-  "modal.name.placeholder": "John Doe",
+  "modal.name.placeholder": "John Snow",
   "modal.name.guest_placeholder": "Guest name",
   "modal.name.add_guest": "Add guest",
   "modal.attendance.title": "Will you be able to attend?",
