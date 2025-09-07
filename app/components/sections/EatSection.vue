@@ -36,20 +36,23 @@ const getRestaurantImage = (restaurantName: string): string => {
     <section class="px-8">
         <div class="grid lg:grid-cols-2 gap-10 items-start">
             <!-- Left side - Title and Description -->
-            <div class="space-y-4">
-                <h2 class="font-display font-bold text-primary text-4xl">{{ $t('eat.title') }}</h2>
-                <p class="font-serif text-primary text-2xl leading-[1.5]">
+            <div class="space-y-2">
+                <h2 class="font-display text-primary text-3xl">{{ $t('eat.title') }}</h2>
+                <p class="font-serif text-accent-light text-3xl leading-[1.5]">
                     {{ $t('eat.description') }}
                 </p>
             </div>
 
             <!-- Right side - Restaurant Cards -->
             <div class="space-y-4">
-                <div
-                    v-for="p in places"
-                    :key="p.name"
-                    class="bg-bg-card rounded-xl p-4 flex items-center gap-4"
-                >
+                <template v-for="(p, index) in places" :key="p.name">
+                    <!-- Restaurant Card -->
+                    <a 
+                        :href="p.mapsUrl" 
+                        target="_blank" 
+                        rel="noopener"
+                        class="hover:bg-bg-card rounded-xl p-4 flex items-center gap-4 transition-colors cursor-pointer block"
+                    >
                     <!-- Restaurant Image -->
                     <div class="w-20 h-20 flex-shrink-0">
                         <img 
@@ -60,25 +63,22 @@ const getRestaurantImage = (restaurantName: string): string => {
                     </div>
                     
                     <!-- Content -->
-                    <div class="flex-1 space-y-2">
+                    <div class="flex-1 space-y-1">
                         <div class="space-y-1">
-                            <h3 class="font-display font-bold text-primary text-xl">{{ p.name }}</h3>
+                            <h3 class="font-display text-primary text-2xl">{{ p.name }}</h3>
                             <p class="font-serif text-primary text-base">
                                 {{ p.area }} - {{ p.driveMins }}min
                             </p>
                         </div>
-                        <a
-                            v-if="p.mapsUrl"
-                            :href="p.mapsUrl"
-                            target="_blank"
-                            rel="noopener"
-                            class="inline-flex items-center gap-1 font-display font-bold text-accent text-sm hover:underline"
-                        >
-                            Obter direções
+                        <div class="flex gap-2 text-sm">
+                            <span class="inline-flex items-center gap-2 font-serif text-accent-light text-sm underline">
+                                Get directions
+                            </span>
                             <span class="material-symbols-outlined text-base text-accent-light">arrow_forward</span>
-                        </a>
+                        </div>
                     </div>
-                </div>
+                    </a>
+                </template>
             </div>
         </div>
     </section>
