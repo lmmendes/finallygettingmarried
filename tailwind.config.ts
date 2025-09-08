@@ -21,9 +21,10 @@ export default <Partial<Config>>{
         "accent-blue": "#E2EBE6",
         "bg-light": "#F7F8FC", // Light background from Figma
         "bg-card": "#F9F4EA", // Card background from Figma
+        "bg-subtle": "#FFFCF6", // Sublt background for the page
         olive: "#9C9E80", // Button/accent color from Figma
         ink: "#2a2a2a",
-        white: "#FFFCF6",
+        white: "#FFFFFF",
       },
       fontFamily: {
         serif: ['Lora', "serif"],

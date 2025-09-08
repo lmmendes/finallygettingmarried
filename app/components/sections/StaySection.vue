@@ -36,12 +36,12 @@ const getHotelImage = (hotelName: string): string => {
 </script>
 
 <template>
-    <section class="px-8">
-        <div class="grid lg:grid-cols-2 gap-[80px] items-start">
+    <section class="px-8 pt-[120px]">
+        <div class="grid lg:grid-cols-2 gap-[40px] lg:gap-[80px] items-start">
             <!-- Left side - Title and Description -->
             <div class="space-y-2">
                 <h2 class="font-display text-primary text-3xl">{{ $t('stay.title') }}</h2>
-                <p class="font-serif text-accent-light text-3xl leading-[1.5]">
+                <p class="font-serif text-accent-light text-2xl sm:text-2xl md:text-3xl lg:text-3xl !leading-[150%]">
                     {{ $t('stay.description') }}
                 </p>
             </div>

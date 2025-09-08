@@ -6,8 +6,7 @@
         :aria-expanded="open"
         aria-haspopup="listbox"
     >
-      <span class="text-base leading-none">{{ current.flag }}</span>
-      <span class="text-sm">{{ current.code.toUpperCase() }}</span>
+      <span class="text-lg leading-none">{{ current.flag }}</span>
       <svg class="size-4 fill-primary" viewBox="0 0 20 20"><path d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.086l3.71-3.855a.75.75 0 1 1 1.08 1.04l-4.24 4.41a.75.75 0 0 1-1.08 0L5.21 8.27a.75.75 0 0 1 .02-1.06z"/></svg>
     </button>
 
@@ -26,11 +25,21 @@
       >
         <span class="text-base leading-none">{{ l.flag }}</span>
         <span class="flex-1">{{ l.code.toUpperCase() }}</span>
-        <span v-if="l.code === locale" class="text-xs opacity-60">✓</span>
+        <span v-if="l.code === locale" class="material-symbols-outlined text-base text-accent-light">check</span>
       </li>
     </ul>
   </div>
 </template>
+
+<style>
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+</style>
 
 <script setup lang="ts">
 import { onClickOutside } from '#imports'
