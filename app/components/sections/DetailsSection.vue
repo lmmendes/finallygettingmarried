@@ -1,5 +1,5 @@
 <template>
-    <section class="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-[104px] bg-white">
+    <section class="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-[120px] bg-white">
         <div class="max-w-5xl mx-auto px-8">
             <div class="grid lg:grid-cols-2 gap-[80px] items-start">
             <!-- Left side - Wedding Illustration -->

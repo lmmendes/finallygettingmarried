@@ -33,7 +33,7 @@ const getRestaurantImage = (restaurantName: string): string => {
 </script>
 
 <template>
-    <section class="px-8">
+    <section class="px-8 pb-[120px]">
         <div class="grid lg:grid-cols-2 gap-[40px] lg:gap-[80px] items-start">
             <!-- Left side - Title and Description -->
             <div class="space-y-2">

@@ -66,7 +66,7 @@
         <!-- Rest of sections with white background -->
         <div class="w-full bg-bg-subtle">
             <div class="max-w-5xl mx-auto">
-                <div class="space-y-20">
+                <div>
 
                 <!-- Wedding Details Section -->
                 <DetailsSection />
@@ -75,7 +75,7 @@
                 <StaySection />
 
                 <!-- Decorative separator -->
-                <div class="flex justify-center py-8">
+                <div class="flex justify-center py-[104px]">
                     <img 
                         src="/images/design/separator.svg" 
                         alt="Section separator" 
@@ -116,7 +116,7 @@
                             </button>
 
                             <!-- Timeline -->
-                            <p class="font-serif text-secondary text-sm leading-none mt-10">
+                            <p class="font-serif text-secondary text-sm leading-relaxed mt-10">
                             {{ $t('countdown.timeline') }}
                             </p>
                         </div>
@@ -133,16 +133,13 @@
                 </div> -->
 
                 <!-- About Us Section -->
-                <div class="mt-[104px]">
-                    <AboutUsSection />
-                </div>
+                <AboutUsSection />
 
 
 
                 <!-- Footer -->
                 <footer class="text-center py-8">
-                    <div class="w-16 h-px bg-primary mx-auto mb-4"></div>
-                    <p class="font-serif text-primary text-sm">{{ $t('footer.text') }}</p>
+                    <p class="font-serif text-secondary text-sm leading-relaxed mx-8">{{ $t('footer.text') }}</p>
                 </footer>
                 </div>
             </div>
