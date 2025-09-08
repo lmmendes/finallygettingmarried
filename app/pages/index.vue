@@ -65,7 +65,7 @@
 
         <!-- Rest of sections with white background -->
         <div class="max-w-5xl mx-auto bg-white px-4">
-            <div class="space-y-20 pt-[104px]">
+            <div class="space-y-20 pt-[64px] md:pt-[104px] lg:pt-[208px]">
 
                 <!-- Decorative Separator -->
                 <!--<div class="flex justify-center py-8">

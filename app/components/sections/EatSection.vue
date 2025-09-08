@@ -38,7 +38,7 @@ const getRestaurantImage = (restaurantName: string): string => {
             <!-- Left side - Title and Description -->
             <div class="space-y-2">
                 <h2 class="font-display text-primary text-3xl">{{ $t('eat.title') }}</h2>
-                <p class="font-serif text-accent-light text-3xl leading-[1.5]">
+                <p class="font-serif text-accent-light text-2xl sm:text-2xl md:text-3xl lg:text-3xl !leading-[150%]">
                     {{ $t('eat.description') }}
                 </p>
             </div>

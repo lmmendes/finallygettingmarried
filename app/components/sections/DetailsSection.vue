@@ -1,5 +1,5 @@
 <template>
-    <section class="px-8">
+    <section class="px-8 sm:pb-[64px] md:pb-[104px] lg:pb-[104px]">
         <div class="grid lg:grid-cols-2 gap-[80px] items-start">
             <!-- Left side - Wedding Illustration -->
             <div class="flex justify-center">
@@ -14,7 +14,7 @@
             <div class="space-y-10">
                         <!-- Wedding Details Text -->
                         <div class="space-y-4">
-                            <p class="font-serif text-accent-light text-3xl leading-[1.5]" v-html="$t('details.description')">
+                            <p class="font-serif font-light text-accent-light text-2xl sm:text-2xl md:text-3xl lg:text-3xl !leading-[150%]" v-html="$t('details.description')">
                             </p>
                         </div>
 
@@ -23,14 +23,14 @@
                     <!-- Ceremony Card -->
                     <div class="space-y-4">
                         <div class="space-y-0">
-                            <h3 class="font-display text-primary text-2xl">{{ $t('details.ceremony.title') }}</h3>
+                            <h3 class="font-display text-primary text-2xl sm:text-2xl md:text-3xl lg:text-3xl">{{ $t('details.ceremony.title') }}</h3>
                             <p class="font-serif text-primary text-sm">{{ $t('details.ceremony.time') }}</p>
                         </div>
                         <div class="space-y-1">
                             <p class="font-serif text-primary text-base">{{ $t('details.ceremony.location') }}</p>
                             <div class="inline-flex items-center gap-1">
                                 <a 
-                                    href="https://maps.google.com" 
+                                    href="https://maps.app.goo.gl/nr2v7GWcNjrvnzEeA" 
                                     target="_blank" 
                                     rel="noopener" 
                                     class="font-serif text-accent-light text-sm underline">
@@ -44,7 +44,7 @@
                     <!-- Reception Card -->
                     <div class="space-y-4">
                         <div class="space-y-0">
-                            <h3 class="font-display text-primary text-2xl">{{ $t('details.reception.title') }}</h3>
+                            <h3 class="font-display text-primary text-2xl sm:text-2xl md:text-3xl lg:text-3xl">{{ $t('details.reception.title') }}</h3>
                             <p class="font-serif text-primary text-sm">{{ $t('details.reception.time') }}</p>
                         </div>
                         <div class="space-y-1">
@@ -52,7 +52,7 @@
                             </p>
                             <div class="inline-flex items-center gap-1">
                                 <a 
-                                    href="https://maps.google.com" 
+                                    href="https://maps.app.goo.gl/V56wcriAWSTxFHBdA" 
                                     target="_blank" rel="noopener" 
                                     class="font-serif text-accent-light text-sm underline">
                                     {{ $t('details.reception.directions') }}
