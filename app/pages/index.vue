@@ -65,7 +65,7 @@
 
         <!-- Rest of sections with white background -->
         <div class="w-full bg-bg-subtle">
-            <div class="max-w-5xl mx-auto px-4">
+            <div class="max-w-5xl mx-auto">
                 <div class="space-y-20">
 
                 <!-- Wedding Details Section -->
