@@ -34,7 +34,7 @@ const getRestaurantImage = (restaurantName: string): string => {
 
 <template>
     <section class="px-8">
-        <div class="grid lg:grid-cols-2 gap-[80px] items-start">
+        <div class="grid lg:grid-cols-2 gap-[40px] lg:gap-[80px] items-start">
             <!-- Left side - Title and Description -->
             <div class="space-y-2">
                 <h2 class="font-display text-primary text-3xl">{{ $t('eat.title') }}</h2>

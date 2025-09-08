@@ -64,29 +64,12 @@
         </div>
 
         <!-- Rest of sections with white background -->
-        <div class="max-w-5xl mx-auto bg-white px-4">
-            <div class="space-y-20 pt-[64px] md:pt-[104px] lg:pt-[208px]">
-
-                <!-- Decorative Separator -->
-                <!--<div class="flex justify-center py-8">
-                    <img 
-                        src="/images/design/separator.svg" 
-                        alt="Wedding decoration separator" 
-                        class="w-16 h-auto opacity-80"
-                    />
-                </div>-->
+        <div class="w-full bg-bg-subtle">
+            <div class="max-w-5xl mx-auto px-4">
+                <div class="space-y-20">
 
                 <!-- Wedding Details Section -->
                 <DetailsSection />
-
-                <!-- Decorative separator -->
-                <div class="flex justify-center py-8">
-                    <img 
-                        src="/images/design/separator.svg" 
-                        alt="Section separator" 
-                        class="w-16 h-auto opacity-80"
-                    />
-                </div>
 
                 <!-- Onde Ficar Section -->
                 <StaySection />
@@ -96,21 +79,12 @@
                     <img 
                         src="/images/design/separator.svg" 
                         alt="Section separator" 
-                        class="w-16 h-auto opacity-80"
+                        class="w-16 h-auto"
                     />
                 </div>
 
                 <!-- Onde Comer Section -->
                 <EatSection />
-
-                <!-- Decorative separator
-                <div class="flex justify-center py-8">
-                    <img 
-                        src="/images/design/separator.svg" 
-                        alt="Section separator" 
-                        class="w-16 h-auto opacity-80"
-                    />
-                </div> -->
 
                 <!-- Countdown Section -->
                 <section class="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
@@ -170,6 +144,7 @@
                     <div class="w-16 h-px bg-primary mx-auto mb-4"></div>
                     <p class="font-serif text-primary text-sm">{{ $t('footer.text') }}</p>
                 </footer>
+                </div>
             </div>
         </div>
 

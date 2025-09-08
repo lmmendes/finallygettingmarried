@@ -1,6 +1,7 @@
 <template>
-    <section class="px-8 sm:pb-[64px] md:pb-[104px] lg:pb-[104px]">
-        <div class="grid lg:grid-cols-2 gap-[80px] items-start">
+    <section class="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-[104px] bg-white">
+        <div class="max-w-5xl mx-auto px-8">
+            <div class="grid lg:grid-cols-2 gap-[80px] items-start">
             <!-- Left side - Wedding Illustration -->
             <div class="flex justify-center">
                 <img 
@@ -63,6 +64,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 </template>
