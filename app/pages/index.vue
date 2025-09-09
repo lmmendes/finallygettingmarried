@@ -123,18 +123,8 @@
                     </div>
                 </section>
 
-                <!-- Decorative separator
-                <div class="flex justify-center py-8">
-                    <img 
-                        src="/images/design/separator.svg" 
-                        alt="Section separator" 
-                        class="w-16 h-auto opacity-80"
-                    />
-                </div> -->
-
                 <!-- About Us Section -->
                 <AboutUsSection />
-
 
 
                 <!-- Footer -->

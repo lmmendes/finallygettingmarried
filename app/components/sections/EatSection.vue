@@ -6,19 +6,19 @@ const places: PlaceCard[] = [
         name: "O Valério",
         area: "Alenquer",
         driveMins: 15,
-        mapsUrl: "https://maps.google.com",
+        mapsUrl: "https://maps.app.goo.gl/ehyJWU2nzxQ66HsG9",
     },
     {
         name: "Colossal",
         area: "Alenquer",
         driveMins: 15,
-        mapsUrl: "https://maps.google.com",
+        mapsUrl: "https://maps.app.goo.gl/nHU2XxhD7ZEiFKALA",
     },
     {
-        name: "Hotel da moita",
-        area: "Lisboa, centro",
-        driveMins: 40,
-        mapsUrl: "https://maps.google.com",
+        name: "Han Table Oriente",
+        area: "Lisboa",
+        driveMins: 60,
+        mapsUrl: "https://maps.app.goo.gl/FsUKW89f8DSsLrzV6",
     },
 ];
 

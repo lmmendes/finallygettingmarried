@@ -14,24 +14,15 @@
             </button>
 
             <!-- Modal Content -->
-            <div class="flex-1 overflow-y-auto p-8 space-y-8">
+            <div class="flex-1 overflow-y-auto px-8 pt-8 pb-[80px] space-y-8">
                 
                 <!-- Title -->
-                <div class="text-center max-w-2xl mx-auto pt-[104px] space-y-4 pb-[40px]">
+                <div class="text-center max-w-2xl mx-auto pt-[80px] space-y-4 pb-[40px]">
                     <h2 class="font-display text-primary text-2xl sm:text-2xl md:text-3xl lg:text-3xl">{{ t('modal.title') }}</h2>
                     <p class="font-serif text-accent-light text-2xl sm:text-2xl md:text-3xl lg:text-3xl !leading-[150%]">
                         {{ $t('modal.description') }}
                     </p>
                 </div>
-
-                <!-- Decorative separator
-                <div class="flex justify-center py-[40px]">
-                    <img 
-                        src="/images/design/separator.svg" 
-                        alt="Section separator" 
-                        class="w-8 h-auto"
-                    />
-                </div> -->
 
                 <!-- Form -->
                 <form @submit.prevent="submitRSVP" class="space-y-12 max-w-2xl mx-auto">
@@ -105,7 +96,7 @@
                         <div class="space-y-4">
                             <div>
                                 <h3 class="font-serif text-primary text-base font-medium mb-1">{{ t('modal.guest.label') }}</h3>
-                                <p class="font-serif text-primary/70 text-base">
+                                <p class="font-serif text-secondary text-base">
                                     {{ t('modal.name.description') }}
                                 </p>
                             </div>
