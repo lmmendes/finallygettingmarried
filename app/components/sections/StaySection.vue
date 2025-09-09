@@ -5,22 +5,22 @@ const hotels: PlaceCard[] = [
     {
         name: "Moxy Lisboa Oriente",
         area: "Parque das nações",
-        driveMins: 90,
+        driveMins: 60,
         bookingUrl: "https://www.booking.com/hotel/pt/moxy-lisboa-oriente.en-gb.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaLsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuALayvfFBsACAdICJGEyYjdmYmI5LTRjNzktNGE1OC1iNTA2LTBhZmE1MzczZDZmMdgCAeACAQ&sid=6ceaccec28b91282c7bda4bf0a9e78ee&dest_id=6443514&dest_type=hotel&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1757275507&srpvid=29068d3585f8095f&type=total&ucfs=1&",
         mapsUrl: "https://maps.google.com",
     },
     {
         name: "Hotel Ibis",
         area: "Parque das nações",
-        driveMins: 90,
+        driveMins: 60,
         bookingUrl: "https://www.booking.com/hotel/pt/ibis-lisboa-parque-das-nacoes.en-gb.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaLsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuALayvfFBsACAdICJGEyYjdmYmI5LTRjNzktNGE1OC1iNTA2LTBhZmE1MzczZDZmMdgCAeACAQ&sid=6ceaccec28b91282c7bda4bf0a9e78ee&dest_id=536349&dest_type=hotel&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1757275628&srpvid=f07e8d74ee8a01ef&type=total&ucfs=1&",
         mapsUrl: "https://maps.google.com",
     },
     {
-        name: "Hotel da moita",
+        name: "Iberostar Selection",
         area: "Lisboa, centro",
-        driveMins: 40,
-        bookingUrl: "https://www.booking.com/hotel/pt/ibis-lisboa-parque-das-nacoes.en-gb.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaLsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuALayvfFBsACAdICJGEyYjdmYmI5LTRjNzktNGE1OC1iNTA2LTBhZmE1MzczZDZmMdgCAeACAQ&sid=6ceaccec28b91282c7bda4bf0a9e78ee&dest_id=536349&dest_type=hotel&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1757275628&srpvid=f07e8d74ee8a01ef&type=total&ucfs=1&",
+        driveMins: 90,
+        bookingUrl: "https://www.booking.com/hotel/pt/iberostar-lisboa.en-gb.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaLsBiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuALt3YLGBsACAdICJDI0MTVlNTE0LWVjNGUtNDE0Mi05ZGQ2LTAyMTU2ZTA4NzVjY9gCAeACAQ&sid=6ceaccec28b91282c7bda4bf0a9e78ee&dest_id=2578749&dest_type=hotel&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1757458178&srpvid=3832a07fa0b40491&type=total&ucfs=1&",
         mapsUrl: "https://maps.google.com",
     },
 ];
@@ -29,7 +29,7 @@ const getHotelImage = (hotelName: string): string => {
     const imageMap: Record<string, string> = {
         "Moxy Lisboa Oriente": "/images/moxy-hotel.png",
         "Hotel Ibis": "/images/ibis-hotel.png",
-        "Hotel da moita": "https://picsum.photos/80/80?random=3"
+        "Iberostar Selection": "/images/iberostar-hotel.png"
     };
     return imageMap[hotelName] || "https://picsum.photos/80/80?random=1";
 };

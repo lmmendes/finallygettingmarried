@@ -11,7 +11,7 @@
                 :style="{ backgroundImage: `url(${image})` }"
             ></div> -->
             <!-- Overlay with 80% opacity -->
-            <div class="absolute inset-0 bg-accent-blue opacity-90"></div>
+            <div class="absolute inset-0 bg-accent-blue"></div>
             <!-- Content -->
             <div class="relative z-10 flex flex-col h-full">
 
@@ -123,18 +123,8 @@
                     </div>
                 </section>
 
-                <!-- Decorative separator
-                <div class="flex justify-center py-8">
-                    <img 
-                        src="/images/design/separator.svg" 
-                        alt="Section separator" 
-                        class="w-16 h-auto opacity-80"
-                    />
-                </div> -->
-
                 <!-- About Us Section -->
                 <AboutUsSection />
-
 
 
                 <!-- Footer -->
