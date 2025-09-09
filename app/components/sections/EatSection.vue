@@ -25,8 +25,8 @@ const places: PlaceCard[] = [
 const getRestaurantImage = (restaurantName: string): string => {
     const imageMap: Record<string, string> = {
         "O Valério": "/images/valerio-restaurant.png",
-        "Colossal": "https://picsum.photos/80/80?random=4",
-        "Hotel da moita": "https://picsum.photos/80/80?random=5"
+        "Colossal": "/images/colossal-restaurant.png",
+        "Han Table Oriente": "/images/hantable-restaurant.png"
     };
     return imageMap[restaurantName] || "https://picsum.photos/80/80?random=1";
 };

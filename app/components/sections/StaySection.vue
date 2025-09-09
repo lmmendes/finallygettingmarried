@@ -29,7 +29,7 @@ const getHotelImage = (hotelName: string): string => {
     const imageMap: Record<string, string> = {
         "Moxy Lisboa Oriente": "/images/moxy-hotel.png",
         "Hotel Ibis": "/images/ibis-hotel.png",
-        "Hotel da moita": "/images/iberostar-hotel.png"
+        "Iberostar Selection": "/images/iberostar-hotel.png"
     };
     return imageMap[hotelName] || "https://picsum.photos/80/80?random=1";
 };
