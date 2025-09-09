@@ -1,164 +1,212 @@
 <template>
     <div 
         v-if="isOpen" 
-        class="fixed inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-sm p-4"
+        class="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm"
         @click.self="closeModal"
     >
-        <div class="rounded-3xl mx-4 w-full max-w-5xl relative shadow-2xl max-h-[90vh] flex flex-col" style="background-color: #F9F4EA;">
+        <div class="w-full h-full relative flex flex-col" style="background-color: #F9F4EA;">
             <!-- Close Button -->
             <button 
                 @click="closeModal"
-                class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-primary/60 hover:text-primary transition-colors rounded-full border border-primary/20 hover:border-primary/40 z-10"
+                class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-secondary hover:text-primary transition-colors rounded-full border border-primary/20 hover:border-primary/40 z-10"
             >
-                <span class="material-symbols-outlined text-lg text-accent-light">close</span>
+                <span class="material-symbols-outlined text-lg text-primary">close</span>
             </button>
 
             <!-- Modal Content -->
-            <div class="overflow-y-auto p-8 space-y-8">
-                            <!-- Title -->
-            <div class="text-center">
-                <h2 class="font-display font-bold text-primary text-4xl italic">{{ t('modal.title') }}</h2>
-            </div>
+            <div class="flex-1 overflow-y-auto p-8 space-y-8">
+                
+                <!-- Title -->
+                <div class="text-center max-w-2xl mx-auto pt-[104px] space-y-4 pb-[40px]">
+                    <h2 class="font-display text-primary text-2xl sm:text-2xl md:text-3xl lg:text-3xl">{{ t('modal.title') }}</h2>
+                    <p class="font-serif text-accent-light text-2xl sm:text-2xl md:text-3xl lg:text-3xl !leading-[150%]">
+                        {{ $t('modal.description') }}
+                    </p>
+                </div>
+
+                <!-- Decorative separator
+                <div class="flex justify-center py-[40px]">
+                    <img 
+                        src="/images/design/separator.svg" 
+                        alt="Section separator" 
+                        class="w-8 h-auto"
+                    />
+                </div> -->
 
                 <!-- Form -->
-                <form @submit.prevent="submitRSVP" class="space-y-8 max-w-2xl mx-auto">
-                    <!-- Name Section -->
-                    <div class="space-y-4">
-                                            <div>
-                        <h3 class="font-display font-bold text-primary text-2xl italic mb-2">{{ t('modal.name.title') }}</h3>
-                        <p class="font-serif text-primary/70 text-base">
-                            {{ t('modal.name.description') }}
-                        </p>
-                    </div>
-                        
-                        <!-- Main guest name -->
-                        <div>
-                            <input 
-                                v-model="form.mainGuest"
-                                type="text" 
-                                required
-                                class="w-full px-6 py-4 border border-primary/30 rounded-2xl font-serif text-primary text-lg focus:outline-none focus:border-primary focus:ring-0 transition-colors placeholder:text-primary/40 bg-white"
-                                :placeholder="t('modal.name.placeholder')"
-                            />
-                        </div>
-
-                        <!-- Additional guests -->
-                        <div v-for="(guest, index) in form.additionalGuests" :key="index" class="relative">
-                            <input 
-                                v-model="form.additionalGuests[index]"
-                                type="text"
-                                class="w-full px-6 py-4 border border-primary/30 rounded-2xl font-serif text-primary text-lg focus:outline-none focus:border-primary focus:ring-0 transition-colors placeholder:text-primary/40 bg-white"
-                                :placeholder="t('modal.name.guest_placeholder')"
-                            />
-                            <button 
-                                type="button"
-                                @click="removeGuest(index)"
-                                class="absolute right-4 top-1/2 -translate-y-1/2 text-primary/40 hover:text-red-500 transition-colors"
-                            >
-                                <span class="material-symbols-outlined text-lg text-accent-light">close</span>
-                            </button>
-                        </div>
-
-                        <!-- Add guest button -->
-                        <button 
-                            type="button"
-                            @click="addGuest"
-                            class="flex items-center gap-2 text-accent font-serif text-lg hover:text-accent/80 transition-colors"
-                        >
-                                                    <span class="text-xl">+</span>
-                        {{ t('modal.name.add_guest') }}
-                        </button>
+                <form @submit.prevent="submitRSVP" class="space-y-12 max-w-2xl mx-auto">
+                    <!-- Main guest name -->
+                    <div class="space-y-3">
+                        <label class="font-serif text-primary text-base font-medium">{{ t('modal.name.label') }}</label>
+                        <input 
+                            type="text" 
+                            v-model="form.email"
+                            :placeholder="t('modal.main.placeholder')"
+                            :class="[
+                                'w-full px-6 py-4 border border-primary/20 rounded-lg focus:outline-none hover:border-primary/40 transition-colors font-serif text-primary placeholder:text-secondary',
+                                form.email.trim() ? 'bg-white' : 'bg-white/40 hover:bg-white/50'
+                            ]"
+                            required
+                        />
                     </div>
 
                     <!-- Attendance Confirmation -->
                     <div class="space-y-4">
-                                            <div>
-                        <h3 class="font-display font-bold text-primary text-2xl italic mb-2">{{ t('modal.attendance.title') }}</h3>
-                        <p class="font-serif text-primary/70 text-base">
-                            {{ t('modal.attendance.description') }}
-                        </p>
-                    </div>
+                        <div>
+                            <h3 class="font-serif text-primary text-base font-medium mb-2">{{ t('modal.attendance.title') }}</h3>
+                        </div>
                         
                         <div class="space-y-3">
-                            <label class="flex items-center p-4 border border-primary/30 rounded-2xl cursor-pointer hover:border-primary/50 transition-colors has-[:checked]:border-accent has-[:checked]:bg-accent/5">
+                            <label class="flex items-center p-4 border border-primary/20 rounded-lg cursor-pointer hover:border-primary/40 hover:bg-secondary/10 transition-colors has-[:checked]:border-primary has-[:checked]:bg-secondary/40">
                                 <input 
                                     v-model="form.attendance" 
                                     type="radio" 
                                     value="yes" 
                                     required
-                                    class="w-5 h-5 text-accent border-2 border-primary/30 focus:ring-accent focus:ring-2 focus:ring-offset-2"
+                                    class="w-5 h-5 text-accent border-2 border-primary/20"
                                 />
-                                <span class="ml-4 font-serif text-primary text-lg">{{ t('modal.attendance.yes') }}</span>
+                                <span class="ml-4 font-serif text-primary text-base">{{ t('modal.attendance.yes') }}</span>
                             </label>
-                            <label class="flex items-center p-4 border border-primary/30 rounded-2xl cursor-pointer hover:border-primary/50 transition-colors has-[:checked]:border-gray-400 has-[:checked]:bg-gray-50">
+                            <label class="flex items-center p-4 border border-primary/20 rounded-lg cursor-pointer hover:border-primary/40 hover:bg-secondary/10 transition-colors has-[:checked]:border-primary has-[:checked]:bg-secondary/40">
                                 <input 
                                     v-model="form.attendance" 
                                     type="radio" 
                                     value="no" 
                                     required
-                                    class="w-5 h-5 text-gray-400 border-2 border-primary/30 focus:ring-gray-400 focus:ring-2 focus:ring-offset-2"
+                                    class="w-5 h-5 text-gray-400 border-2 border-primary/20"
                                 />
-                                <span class="ml-4 font-serif text-primary text-lg">{{ t('modal.attendance.no') }}</span>
+                                <span class="ml-4 font-serif text-primary text-base">{{ t('modal.attendance.no') }}</span>
                             </label>
+                        </div>
+                     </div>
+
+                    <!-- Message for bride and groom (only if not attending) -->
+                    <div v-if="form.attendance === 'no'" class="space-y-4">
+                        <div>
+                            <h3 class="font-serif text-primary text-base font-medium mb-1">{{ t('modal.message.title') }}</h3>
+                            <p class="font-serif text-secondary text-base">
+                                {{ t('modal.message.description') }}
+                            </p>
+                        </div>
+                        <textarea 
+                            v-model="form.message"
+                            rows="4"
+                            :class="[
+                                'w-full px-6 py-4 border border-primary/20 rounded-lg font-serif text-primary text-base focus:outline-none hover:border-primary/40 focus:ring-0 transition-colors resize-none placeholder:text-secondary',
+                                form.message.trim() ? 'bg-white' : 'bg-white/40 hover:bg-white/50'
+                            ]"
+                            :placeholder="t('modal.message.placeholder')"
+                        ></textarea>
+                    </div>
+
+                    <!-- Name Section and Dietary (only if attending) -->
+                    <div v-if="form.attendance === 'yes'" class="space-y-4">
+                        <!-- Name Section -->
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="font-serif text-primary text-base font-medium mb-1">{{ t('modal.guest.label') }}</h3>
+                                <p class="font-serif text-primary/70 text-base">
+                                    {{ t('modal.name.description') }}
+                                </p>
+                            </div>
+                        
+                            <!-- Additional guests name -->
+                            <div>
+                                <input 
+                                    v-model="form.mainGuest"
+                                    type="text" 
+                                    required
+                                    :class="[
+                                        'w-full px-6 py-4 border border-primary/20 rounded-lg font-serif text-primary text-base focus:outline-none hover:border-primary/40 focus:ring-0 transition-colors placeholder:text-secondary',
+                                        form.mainGuest.trim() ? 'bg-white' : 'bg-white/40 hover:bg-white/50'
+                                    ]"
+                                    :placeholder="t('modal.name.placeholder')"
+                                />
+                            </div>
+
+                            <!-- Additional guests -->
+                            <div v-for="(guest, index) in form.additionalGuests" :key="index" class="relative">
+                                <input 
+                                    v-model="form.additionalGuests[index]"
+                                    type="text"
+                                    :class="[
+                                        'w-full px-6 py-4 border border-primary/20 rounded-lg font-serif text-primary text-base focus:outline-none hover:border-primary/40 focus:ring-0 transition-colors placeholder:text-secondary',
+                                        form.additionalGuests[index].trim() ? 'bg-white' : 'bg-white/40 hover:bg-white/50'
+                                    ]"
+                                    :placeholder="t('modal.name.guest_placeholder')"
+                                />
+                                <button 
+                                    type="button"
+                                    @click="removeGuest(index)"
+                                    class="absolute right-4 top-1/2 -translate-y-1/2 text-primary/40 hover:text-red-500 transition-colors"
+                                >
+                                    <span class="material-symbols-outlined text-lg text-accent-light">close</span>
+                                </button>
+                            </div>
+
+                            <!-- Add guest button -->
+                            <button 
+                                type="button"
+                                @click="addGuest"
+                                class="flex items-center gap-2 text-accent-light font-serif text-base hover:text-accent-light/80 transition-colors"
+                            >
+                            <span class="text-xl">+</span>
+                            {{ t('modal.name.add_guest') }}
+                            </button>
                         </div>
                     </div>
 
                     <!-- Dietary Restrictions (only if attending) -->
                     <div v-if="form.attendance === 'yes'" class="space-y-4">
-                                            <div>
-                        <h3 class="font-display font-bold text-primary text-2xl italic mb-2">{{ t('modal.dietary.title') }}</h3>
-                        <p class="font-serif text-primary/70 text-base">
-                            {{ t('modal.dietary.description') }}
-                        </p>
-                    </div>
+                        <!-- Dietary description -->
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="font-serif text-primary text-base font-medium mb-1">{{ t('modal.dietary.title') }}</h3>
+                                <p class="font-serif text-secondary text-base">
+                                    {{ t('modal.dietary.description') }}
+                                </p>
+                            </div>
                         
-                        <textarea 
-                            v-model="form.dietary"
-                            rows="3"
-                            class="w-full px-6 py-4 border border-primary/30 rounded-2xl font-serif text-primary text-lg focus:outline-none focus:border-primary focus:ring-0 transition-colors resize-none placeholder:text-primary/40 bg-white"
-                            :placeholder="t('modal.dietary.placeholder')"
-                        ></textarea>
+                            <textarea 
+                                v-model="form.dietary"
+                                rows="3"
+                                :class="[
+                                    'w-full px-6 py-4 border border-primary/20 rounded-lg font-serif text-primary text-base focus:outline-none hover:border-primary/40 focus:ring-0 transition-colors resize-none placeholder:text-secondary',
+                                    form.dietary.trim() ? 'bg-white' : 'bg-white/40 hover:bg-white/50'
+                                ]"
+                                :placeholder="t('modal.dietary.placeholder')"
+                            ></textarea>
+                        </div>
                     </div>
 
-                    <!-- Music Request (only if attending) -->
+                    <!-- Music and Message (only if attending) -->
                     <div v-if="form.attendance === 'yes'" class="space-y-4">
-                                            <div>
-                        <h3 class="font-display font-bold text-primary text-2xl italic mb-2">{{ t('modal.music.title') }}</h3>
-                        <p class="font-serif text-primary/70 text-base" v-html="t('modal.music.description')">
-                        </p>
-                    </div>
+                        <!-- Music Request -->
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="font-serif text-primary text-base font-medium mb-1">{{ t('modal.music.title') }}</h3>
+                                <p class="font-serif text-secondary text-base" v-html="t('modal.music.description')">
+                                </p>
+                            </div>
                         
-                        <input 
-                            v-model="form.musicRequest"
-                            type="text"
-                            class="w-full px-6 py-4 border border-primary/30 rounded-2xl font-serif text-primary text-lg focus:outline-none focus:border-primary focus:ring-0 transition-colors placeholder:text-primary/40 bg-white"
-                            :placeholder="t('modal.music.placeholder')"
-                        />
-                    </div>
-
-                    <!-- Message to Bride and Groom -->
-                    <div class="space-y-4">
-                                            <div>
-                        <h3 class="font-display font-bold text-primary text-2xl italic mb-2">{{ t('modal.message.title') }}</h3>
-                        <p class="font-serif text-primary/70 text-base">
-                            {{ t('modal.message.description') }}
-                        </p>
-                    </div>
-                        
-                        <textarea 
-                            v-model="form.message"
-                            rows="4"
-                            class="w-full px-6 py-4 border border-primary/30 rounded-2xl font-serif text-primary text-lg focus:outline-none focus:border-primary focus:ring-0 transition-colors resize-none placeholder:text-primary/40 bg-white"
-                            :placeholder="t('modal.message.placeholder')"
-                        ></textarea>
+                            <input 
+                                v-model="form.musicRequest"
+                                type="text"
+                                :class="[
+                                    'w-full px-6 py-4 border border-primary/20 rounded-lg font-serif text-primary text-base focus:outline-none hover:border-primary/40 focus:ring-0 transition-colors placeholder:text-secondary',
+                                    form.musicRequest.trim() ? 'bg-white' : 'bg-white/40 hover:bg-white/50'
+                                ]"
+                                :placeholder="t('modal.music.placeholder')"
+                            />
+                        </div>
                     </div>
 
                     <!-- Submit Button -->
                     <div class="pt-4 flex justify-center">
                         <button 
                             type="submit"
-                            :disabled="isSubmitting"
-                            class="bg-olive text-white px-10 py-3 rounded-full font-display font-bold text-xl italic hover:bg-olive/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                            :disabled="isSubmitting || !isFormValid"
+                            class="bg-accent-light text-white px-8 py-4 rounded-full font-serif text-base hover:bg-accent-light/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             {{ isSubmitting ? t('modal.submitting') : t('modal.submit') }}
                         </button>
@@ -174,6 +222,7 @@
 const { t } = useI18n();
 
 interface RSVPForm {
+    email: string;
     mainGuest: string;
     additionalGuests: string[];
     dietary: string;
@@ -196,7 +245,13 @@ const emit = defineEmits<Emits>();
 
 const isSubmitting = ref(false);
 
+// Check if form has required fields filled
+const isFormValid = computed(() => {
+    return form.value.email.trim() !== '' && form.value.attendance !== '';
+});
+
 const form = ref<RSVPForm>({
+    email: '',
     mainGuest: '',
     additionalGuests: [],
     dietary: '',

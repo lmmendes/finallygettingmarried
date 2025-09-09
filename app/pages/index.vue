@@ -11,7 +11,7 @@
                 :style="{ backgroundImage: `url(${image})` }"
             ></div> -->
             <!-- Overlay with 80% opacity -->
-            <div class="absolute inset-0 bg-accent-blue opacity-90"></div>
+            <div class="absolute inset-0 bg-accent-blue"></div>
             <!-- Content -->
             <div class="relative z-10 flex flex-col h-full">
 
