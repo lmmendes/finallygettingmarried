@@ -126,6 +126,9 @@
                 <!-- About Us Section -->
                 <AboutUsSection />
 
+                 <!-- About Us Section -->
+                 <PresentsSection />
+
 
                 <!-- Footer -->
                 <footer class="text-center py-8">
@@ -150,6 +153,7 @@
   import StaySection from '~/components/sections/StaySection.vue';
   import EatSection from '~/components/sections/EatSection.vue';
   import AboutUsSection from '~/components/sections/AboutUsSection.vue';
+  import PresentsSection from '~/components/sections/PresentsSection.vue';
   import RSVPModal from '~/components/RSVPModal.vue';
   import { useCountdown } from "~/composables/useCountdown";
 
