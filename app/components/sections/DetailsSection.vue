@@ -5,7 +5,7 @@
             <!-- Left side - Wedding Illustration -->
             <div class="flex justify-center">
                 <img 
-                    src="/images/design/church.svg" 
+                    src="/images/design/illo.png" 
                     alt="Wedding church illustration" 
                     class="w-full max-w-md h-auto"
                 />
