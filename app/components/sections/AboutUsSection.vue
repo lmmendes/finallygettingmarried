@@ -5,7 +5,7 @@
             <div class="relative">
             <!-- Text content centered -->
             <div class="w-full text-center space-y-4 relative z-10">
-                <h2 class="font-display text-primary text-2xl sm:text-2xl md:text-3xl lg:text-3xl">{{ $t('about.title') }}</h2>
+                <h2 class="font-display text-primary text-3xl">{{ $t('about.title') }}</h2>
                 <p class="font-serif text-accent-light text-2xl sm:text-2xl md:text-3xl lg:text-3xl !leading-[150%]">
                     {{ $t('about.text') }}
                 </p>

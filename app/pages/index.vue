@@ -2,16 +2,16 @@
     <div class="min-h-screen bg-white">
         <!-- Hero Section with full viewport height -->
         <div class="hero-section flex flex-col relative overflow-hidden" style="height: 100vh;">
-            <!-- Background images with crossfade effect
+            <!-- Background images with crossfade effect -->
             <div 
                 v-for="(image, index) in carousselImages" 
                 :key="index"
                 class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out"
                 :class="{ 'opacity-100': index === currentImageIndex, 'opacity-0': index !== currentImageIndex }"
                 :style="{ backgroundImage: `url(${image})` }"
-            ></div> -->
+            ></div>
             <!-- Overlay with 80% opacity -->
-            <div class="absolute inset-0 bg-accent-blue"></div>
+            <div class="absolute inset-0 bg-accent-blue/90"></div>
             <!-- Content -->
             <div class="relative z-10 flex flex-col h-full">
 
@@ -94,12 +94,12 @@
                             <div class="flex items-top justify-center gap-8 text-5xl md:text-6xl font-display text-primary mb-10">
                                 <div class="text-center">
                                     <div class="w-26 text-center">{{ String(remaining.years).padStart(2, '0') }}</div>
-                                    <div class="text-base font-serif font-light text-secondary mt-1">{{ $t('countdown.years') }}</div>
+                                    <div class="text-base font-serif font-light text-secondary mt-1">{{ $t('countdown.months') }}</div>
                                 </div>
                                 <span class="text-primary">:</span>
                                 <div class="text-center">
                                     <div class="w-26 text-center">{{ String(remaining.months).padStart(2, '0') }}</div>
-                                    <div class="text-base font-serif font-light text-secondary mt-1">{{ $t('countdown.months') }}</div>
+                                    <div class="text-base font-serif font-light text-secondary mt-1">{{ $t('countdown.weeks') }}</div>
                                 </div>
                                 <span class="text-primary">:</span>
                                 <div class="text-center">
