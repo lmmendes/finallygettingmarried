@@ -31,11 +31,11 @@
                         <label class="font-serif text-primary text-base font-medium">{{ t('modal.name.label') }}</label>
                         <input 
                             type="text" 
-                            v-model="form.email"
+                            v-model="form.name"
                             :placeholder="t('modal.main.placeholder')"
                             :class="[
                                 'w-full px-6 py-4 border border-primary/20 rounded-lg focus:outline-none hover:border-primary/40 transition-colors font-serif text-primary placeholder:text-secondary',
-                                form.email.trim() ? 'bg-white' : 'bg-white/40 hover:bg-white/50'
+                                form.name.trim() ? 'bg-white' : 'bg-white/40 hover:bg-white/50'
                             ]"
                             required
                         />
@@ -101,19 +101,6 @@
                                 </p>
                             </div>
                         
-                            <!-- Additional guests name -->
-                            <div>
-                                <input 
-                                    v-model="form.mainGuest"
-                                    type="text" 
-                                    required
-                                    :class="[
-                                        'w-full px-6 py-4 border border-primary/20 rounded-lg font-serif text-primary text-base focus:outline-none hover:border-primary/40 focus:ring-0 transition-colors placeholder:text-secondary',
-                                        form.mainGuest.trim() ? 'bg-white' : 'bg-white/40 hover:bg-white/50'
-                                    ]"
-                                    :placeholder="t('modal.name.placeholder')"
-                                />
-                            </div>
 
                             <!-- Additional guests -->
                             <div v-for="(guest, index) in form.additionalGuests" :key="index" class="relative">
@@ -122,7 +109,7 @@
                                     type="text"
                                     :class="[
                                         'w-full px-6 py-4 border border-primary/20 rounded-lg font-serif text-primary text-base focus:outline-none hover:border-primary/40 focus:ring-0 transition-colors placeholder:text-secondary',
-                                        form.additionalGuests[index].trim() ? 'bg-white' : 'bg-white/40 hover:bg-white/50'
+                                        form.additionalGuests[index]?.trim() ? 'bg-white' : 'bg-white/40 hover:bg-white/50'
                                     ]"
                                     :placeholder="t('modal.name.guest_placeholder')"
                                 />
@@ -213,8 +200,7 @@
 const { t } = useI18n();
 
 interface RSVPForm {
-    email: string;
-    mainGuest: string;
+    name: string;
     additionalGuests: string[];
     dietary: string;
     attendance: 'yes' | 'no' | '';
@@ -238,12 +224,11 @@ const isSubmitting = ref(false);
 
 // Check if form has required fields filled
 const isFormValid = computed(() => {
-    return form.value.email.trim() !== '' && form.value.attendance !== '';
+    return form.value.name.trim() !== '' && form.value.attendance !== '';
 });
 
 const form = ref<RSVPForm>({
-    email: '',
-    mainGuest: '',
+    name: '',
     additionalGuests: [],
     dietary: '',
     attendance: '',
@@ -273,7 +258,7 @@ const submitRSVP = async () => {
         
         // Reset form
         form.value = {
-            mainGuest: '',
+            name: '',
             additionalGuests: [],
             dietary: '',
             attendance: '',

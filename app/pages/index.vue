@@ -233,7 +233,7 @@
     try {
       // Create the structured data for Google Apps Script
       const formData = {
-        name: data.mainGuest,
+        name: data.name,
         attending: data.attendance, // 'yes' or 'no'
         dietary_restrictions: data.dietary || '',
         music: data.musicRequest || '',
