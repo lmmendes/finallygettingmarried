@@ -59,6 +59,18 @@
   "modal.message.placeholder": "Sorry I'm missing it. I'll be drinking a negroni while crying in a corner.",
   "modal.submit": "Submit",
   "modal.submitting": "Sending...",
-  "modal.success": "Wohoo! Your rsvp has been sent successfully.",
-  "modal.error": "Error sending your rsvp. Please try again."
+  "modal.success": "Thank you! Your confirmation has been sent successfully.",
+  "modal.error": "Error sending confirmation. Please try again.",
+  "auth.title": "Welcome to our wedding!",
+  "auth.subtitle": "To access the site, answer a simple question about us.",
+  "auth.placeholder": "Write your answer here...",
+  "auth.submit": "Verify",
+  "auth.checking": "Checking...",
+  "auth.error": "Incorrect answer. Try again!",
+  "auth.questions.bride_name": "What is the bride's name?",
+  "auth.questions.groom_name": "What is the groom's name?",
+  "auth.questions.wedding_date": "When is the wedding?",
+  "auth.questions.wedding_location": "Where is the wedding?",
+  "auth.questions.church_name": "What is the name of the church?",
+  "auth.questions.cat_name": "What is the name of Sónia’s true love — in other words, her cat? 🐾💕"
 }

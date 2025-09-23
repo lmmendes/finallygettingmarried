@@ -21,7 +21,16 @@
                         <h1 class="font-display text-primary text-xl leading-tight">{{ $t('brand.title') }}</h1>
                         <p class="font-serif font-regular text-primary text-[10px] mt-0">{{ $t('brand.subtitle') }}</p>
                     </div> -->
-                    <LanguageSwitcher />
+                    <div class="flex items-center gap-4">
+                        <button 
+                            @click="clearAuth" 
+                            class="text-xs text-white hover:text-red-200 transition-colors"
+                            title="Clear authentication (for testing)"
+                        >
+                            🚪 Logout
+                        </button>
+                        <LanguageSwitcher />
+                    </div>
                 </header>
 
                 <!-- Hero CTA Section - takes remaining space -->
@@ -68,72 +77,71 @@
             <div class="max-w-5xl mx-auto">
                 <div>
 
-                <!-- Wedding Details Section -->
-                <DetailsSection />
+                    <!-- Wedding Details Section -->
+                    <DetailsSection />
 
-                <!-- Onde Ficar Section -->
-                <StaySection />
+                    <!-- Onde Ficar Section -->
+                    <StaySection />
 
-                <!-- Decorative separator -->
-                <div class="flex justify-center py-[104px]">
-                    <img 
-                        src="/images/design/separator.svg" 
-                        alt="Section separator" 
-                        class="w-16 h-auto"
-                    />
-                </div>
-
-                <!-- Onde Comer Section -->
-                <EatSection />
-
-                <!-- Countdown Section -->
-                <section class="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-                    <div class="bg-accent-blue p-[104px] text-center relative overflow-hidden">
-                        <!-- Content -->
-                        <div class="relative z-10">
-                            <div class="flex items-top justify-center gap-8 text-5xl md:text-6xl font-display text-primary mb-10">
-                                <div class="text-center">
-                                    <div class="w-26 text-center">{{ String(remaining.years).padStart(2, '0') }}</div>
-                                    <div class="text-base font-serif font-light text-secondary mt-1">{{ $t('countdown.months') }}</div>
-                                </div>
-                                <span class="text-primary">:</span>
-                                <div class="text-center">
-                                    <div class="w-26 text-center">{{ String(remaining.months).padStart(2, '0') }}</div>
-                                    <div class="text-base font-serif font-light text-secondary mt-1">{{ $t('countdown.weeks') }}</div>
-                                </div>
-                                <span class="text-primary">:</span>
-                                <div class="text-center">
-                                    <div class="w-26 text-center">{{ String(remaining.days).padStart(2, '0') }}</div>
-                                    <div class="text-base font-serif font-light text-secondary mt-1">{{ $t('countdown.days') }}</div>
-                                </div>
-                            </div>
-
-                            <!-- CTA -->
-                            <button
-                                @click="openModal"
-                                class="inline-block bg-accent-light text-white px-8 py-4 rounded-full font-serif text-base hover:bg-accent-light/80 transition-colors">
-                                {{ $t('countdown.cta') }}
-                            </button>
-
-                            <!-- Timeline -->
-                            <p class="font-serif text-secondary text-sm leading-relaxed mt-10">
-                            {{ $t('countdown.timeline') }}
-                            </p>
-                        </div>
+                    <!-- Decorative separator -->
+                    <div class="flex justify-center py-[104px]">
+                        <img 
+                            src="/images/design/separator.svg" 
+                            alt="Section separator" 
+                            class="w-16 h-auto"
+                        />
                     </div>
-                </section>
 
-                <!-- About Us Section -->
-                <AboutUsSection />
+                    <!-- Onde Comer Section -->
+                    <EatSection />
 
-                 <!-- About Us Section -->
-                 <PresentsSection />
+                    <!-- Countdown Section -->
+                    <section class="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+                        <div class="bg-accent-blue p-[104px] text-center relative overflow-hidden">
+                            <!-- Content -->
+                            <div class="relative z-10">
+                                <div class="flex items-top justify-center gap-8 text-5xl md:text-6xl font-display text-primary mb-10">
+                                    <div class="text-center">
+                                        <div class="w-26 text-center">{{ String(remaining.years).padStart(2, '0') }}</div>
+                                        <div class="text-base font-serif font-light text-secondary mt-1">{{ $t('countdown.months') }}</div>
+                                    </div>
+                                    <span class="text-primary">:</span>
+                                    <div class="text-center">
+                                        <div class="w-26 text-center">{{ String(remaining.months).padStart(2, '0') }}</div>
+                                        <div class="text-base font-serif font-light text-secondary mt-1">{{ $t('countdown.weeks') }}</div>
+                                    </div>
+                                    <span class="text-primary">:</span>
+                                    <div class="text-center">
+                                        <div class="w-26 text-center">{{ String(remaining.days).padStart(2, '0') }}</div>
+                                        <div class="text-base font-serif font-light text-secondary mt-1">{{ $t('countdown.days') }}</div>
+                                    </div>
+                                </div>
 
+                                <!-- CTA -->
+                                <button
+                                    @click="openModal"
+                                    class="inline-block bg-accent-light text-white px-8 py-4 rounded-full font-serif text-base hover:bg-accent-light/80 transition-colors">
+                                    {{ $t('countdown.cta') }}
+                                </button>
 
-                <!-- Footer -->
-                <footer class="text-center py-8">
-                    <p class="font-serif text-secondary text-sm leading-relaxed mx-8">{{ $t('footer.text') }}</p>
-                </footer>
+                                <!-- Timeline -->
+                                <p class="font-serif text-secondary text-sm leading-relaxed mt-10">
+                                {{ $t('countdown.timeline') }}
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- About Us Section -->
+                    <AboutUsSection />
+
+                    <!-- Presents Section -->
+                    <PresentsSection />
+
+                    <!-- Footer -->
+                    <footer class="text-center py-8">
+                        <p class="font-serif text-secondary text-sm leading-relaxed mx-8">{{ $t('footer.text') }}</p>
+                    </footer>
                 </div>
             </div>
         </div>
@@ -156,6 +164,18 @@
   import PresentsSection from '~/components/sections/PresentsSection.vue';
   import RSVPModal from '~/components/RSVPModal.vue';
   import { useCountdown } from "~/composables/useCountdown";
+  import { useAuth } from "~/composables/useAuth";
+
+  // Auth setup
+  const { setAuthenticated, isAuthenticated } = useAuth()
+
+  // Check authentication on mount
+  onMounted(() => {
+    if (!isAuthenticated.value) {
+      console.log('User not authenticated, redirecting to auth page')
+      navigateTo('/auth')
+    }
+  })
 
   // Background image carousel from caroussel folder
   const carousselImages = [
@@ -188,6 +208,13 @@
   // Countdown setup
   const target = new Date("2026-05-23T15:00:00+01:00"); // 23 Maio 2026 15:00
   const { remaining } = useCountdown(target);
+
+  // Clear authentication (for testing)
+  const clearAuth = () => {
+    setAuthenticated(false)
+    console.log('Authentication cleared, redirecting to auth page')
+    navigateTo('/auth')
+  }
 
   // Modal state management
   const isModalOpen = ref(false);
