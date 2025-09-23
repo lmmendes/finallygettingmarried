@@ -36,3 +36,16 @@
 .animate-scroll {
     animation: scroll 30s linear infinite;
 }
+
+/* Prevent content flash during authentication loading */
+.auth-loading {
+    overflow: hidden;
+}
+
+.auth-loading * {
+    visibility: hidden;
+}
+
+.auth-loading .loading-content {
+    visibility: visible;
+}

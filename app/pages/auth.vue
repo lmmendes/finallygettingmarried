@@ -1,5 +1,18 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 flex items-center justify-center p-4 relative overflow-hidden">
+  <!-- Loading state while checking if already authenticated -->
+  <div v-if="isLoading" class="loading-content min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 flex items-center justify-center">
+    <div class="text-center">
+      <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+        <svg class="w-8 h-8 text-primary animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+        </svg>
+      </div>
+      <p class="font-serif text-primary text-sm">A carregar...</p>
+    </div>
+  </div>
+  
+  <!-- Auth form (only shown when not authenticated) -->
+  <div v-else class="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 flex items-center justify-center p-4 relative overflow-hidden">
     <!-- Random Wedding Emojis Background -->
     <div 
       v-for="(emoji, index) in backgroundEmojis" 
@@ -49,10 +62,10 @@
 
           <button
             type="submit"
-            :disabled="!userAnswer.trim() || isLoading || !currentQuestion.question"
+            :disabled="!userAnswer.trim() || isSubmitting || !currentQuestion.question"
             class="w-full bg-primary text-white py-3 px-6 rounded-xl font-display font-bold text-lg hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
-            <span v-if="isLoading">{{ $t('auth.checking') }}</span>
+            <span v-if="isSubmitting">{{ $t('auth.checking') }}</span>
             <span v-else>{{ $t('auth.submit') }}</span>
           </button>
         </form>
@@ -76,12 +89,13 @@ definePageMeta({
 })
 
 // Auth composable
-const { getRandomQuestion, validateAnswer, setAuthenticated } = useAuth()
+const { getRandomQuestion, validateAnswer, setAuthenticated, isInitialized } = useAuth()
 
 // Reactive state
 const userAnswer = ref('')
 const error = ref(false)
-const isLoading = ref(false)
+const isLoading = computed(() => !isInitialized.value) // Show loading until auth is initialized
+const isSubmitting = ref(false)
 const currentQuestion = ref<{ question: string; answers: string[] }>({ question: '', answers: [] })
 
 // Wedding emojis for background
@@ -119,6 +133,16 @@ const generateBackgroundEmojis = () => {
 
 // Initialize question and emojis on client side
 onMounted(() => {
+  // Check if already authenticated first
+  const { isAuthenticated } = useAuth()
+  
+  if (isAuthenticated.value) {
+    console.log('User is already authenticated, redirecting to main page')
+    navigateTo('/')
+    return
+  }
+  
+  // If not authenticated, show the auth form
   currentQuestion.value = getRandomQuestion()
   generateBackgroundEmojis()
 })
@@ -126,7 +150,7 @@ onMounted(() => {
 // Handle form submission
 const handleSubmit = async () => {
   error.value = false
-  isLoading.value = true
+  isSubmitting.value = true
 
   // Simulate a small delay for better UX
   await new Promise(resolve => setTimeout(resolve, 500))
@@ -145,7 +169,7 @@ const handleSubmit = async () => {
     generateBackgroundEmojis()
   }
   
-  isLoading.value = false
+  isSubmitting.value = false
 }
 
 // Redirect if already authenticated

@@ -39,7 +39,20 @@ export const useAuth = () => {
 
   // Reactive authentication state
   const isAuthenticated = computed(() => authCookie.value === true)
-  const isLoading = ref(false) // No loading needed since cookie is synchronous
+  const isInitialized = ref(false)
+  
+  // Initialize on client side with a small delay to prevent flash
+  if (process.client) {
+    onMounted(() => {
+      // Add a small delay to ensure smooth loading
+      setTimeout(() => {
+        isInitialized.value = true
+      }, 100)
+    })
+  } else {
+    // On server side, consider it initialized
+    isInitialized.value = true
+  }
 
   // Set authentication status
   const setAuthenticated = (value: boolean) => {
@@ -48,7 +61,7 @@ export const useAuth = () => {
 
   return {
     isAuthenticated,
-    isLoading: readonly(isLoading),
+    isInitialized: readonly(isInitialized),
     getRandomQuestion,
     validateAnswer,
     setAuthenticated
