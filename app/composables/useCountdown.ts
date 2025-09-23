@@ -1,4 +1,4 @@
-export type Countdown = { years: number; months: number; days: number }
+export type Countdown = { months: number; weeks: number; days: number }
 
 export function useCountdown(target: Date) {
   const now = ref<Date>(new Date())
@@ -14,22 +14,33 @@ export function useCountdown(target: Date) {
   const remaining = computed<Countdown>(() => {
     const start = new Date(now.value)
     const end = new Date(target)
-    let years = end.getFullYear() - start.getFullYear()
-    let months = end.getMonth() - start.getMonth()
-    let days = end.getDate() - start.getDate()
-
-    if (days < 0) {
-      months -= 1
-      const prevMonth = new Date(end.getFullYear(), end.getMonth(), 0).getDate()
-      days += prevMonth
+    
+    // Calculate total difference in milliseconds
+    const diffMs = end.getTime() - start.getTime()
+    
+    // If the date has passed, return zeros
+    if (diffMs <= 0) {
+      return { months: 0, weeks: 0, days: 0 }
     }
-    if (months < 0) {
-      years -= 1
-      months += 12
-    }
+    
+    // Calculate total days
+    const totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24))
+    
+    // Calculate months (approximate)
+    const months = Math.floor(totalDays / 30.44) // Average days per month
+    
+    // Calculate remaining days after months
+    const remainingDaysAfterMonths = totalDays - (months * 30.44)
+    
+    // Calculate weeks from remaining days
+    const weeks = Math.floor(remainingDaysAfterMonths / 7)
+    
+    // Calculate remaining days after weeks
+    const days = Math.floor(remainingDaysAfterMonths - (weeks * 7))
+    
     return {
-      years: Math.max(0, years),
       months: Math.max(0, months),
+      weeks: Math.max(0, weeks),
       days: Math.max(0, days)
     }
   })

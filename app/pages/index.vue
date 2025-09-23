@@ -102,12 +102,12 @@
                             <div class="relative z-10">
                                 <div class="flex items-top justify-center gap-8 text-5xl md:text-6xl font-display text-primary mb-10">
                                     <div class="text-center">
-                                        <div class="w-26 text-center">{{ String(remaining.years).padStart(2, '0') }}</div>
+                                        <div class="w-26 text-center">{{ String(remaining.months).padStart(2, '0') }}</div>
                                         <div class="text-base font-serif font-light text-secondary mt-1">{{ $t('countdown.months') }}</div>
                                     </div>
                                     <span class="text-primary">:</span>
                                     <div class="text-center">
-                                        <div class="w-26 text-center">{{ String(remaining.months).padStart(2, '0') }}</div>
+                                        <div class="w-26 text-center">{{ String(remaining.weeks).padStart(2, '0') }}</div>
                                         <div class="text-base font-serif font-light text-secondary mt-1">{{ $t('countdown.weeks') }}</div>
                                     </div>
                                     <span class="text-primary">:</span>
