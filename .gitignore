@@ -6,6 +6,10 @@
 .cache
 dist
 
+# Static site generation
+.output/public
+dist
+
 # Node dependencies
 node_modules
 

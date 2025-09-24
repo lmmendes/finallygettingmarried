@@ -34,7 +34,9 @@ export const useAuth = () => {
   // Get authentication cookie
   const authCookie = useCookie('wedding-auth', { 
     default: () => false,
-    maxAge: 60 * 60 * 24 * 30 // 30 days
+    maxAge: 60 * 60 * 24 * 30, // 30 days
+    secure: true,
+    sameSite: 'strict'
   })
 
   // Reactive authentication state

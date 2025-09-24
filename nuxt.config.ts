@@ -2,6 +2,16 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n", "@vueuse/nuxt"],
+  
+  // Static site generation
+  nitro: {
+    prerender: {
+      routes: ['/', '/auth', '/en', '/en/auth']
+    }
+  },
+  
+  // Generate static site
+  ssr: false,
   i18n: {
     defaultLocale: 'pt',
     strategy: 'prefix_except_default',
@@ -13,6 +23,12 @@ export default defineNuxtConfig({
     compilation: {
       strictMessage: false,
       escapeHtml: false
+    },
+    // Static generation compatibility
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root'
     }
   },
   app: {
@@ -46,5 +62,5 @@ export default defineNuxtConfig({
   tailwindcss: {
     viewer: false,
   },
-  typescript: { strict: true },
+  typescript: { strict: true }
 });
