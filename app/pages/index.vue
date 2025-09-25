@@ -30,18 +30,14 @@
 
                 <!-- Header -->
                 <header class="flex justify-end items-end px-4 pt-4 md:px-6 md:pt-6">
-                    <!-- <div>
-                        <h1 class="font-display text-primary text-xl leading-tight">{{ $t('brand.title') }}</h1>
-                        <p class="font-serif font-regular text-primary text-[10px] mt-0">{{ $t('brand.subtitle') }}</p>
-                    </div> -->
                     <div class="flex items-center gap-4">
-                        <button 
+                        <!-- <button 
                             @click="clearAuth" 
                             class="text-xs text-white hover:text-red-200 transition-colors"
                             title="Clear authentication (for testing)"
                         >
                             🚪 Logout
-                        </button>
+                        </button> -->
                         <LanguageSwitcher />
                     </div>
                 </header>
@@ -85,7 +81,7 @@
             </div>
         </div>
 
-        <!-- Rest of sections with white background -->
+        <!-- Rest of sections -->
         <div class="w-full bg-bg-subtle">
             <div class="max-w-5xl mx-auto">
                 <div>

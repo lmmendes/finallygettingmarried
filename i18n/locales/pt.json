@@ -1,4 +1,5 @@
 {
+  "brand.date": "23.05.2026",
   "brand.title": "Sónia & Luís",
   "brand.subtitle": "Finalmente casam",
   "nav.about": "Sobre",
@@ -26,15 +27,15 @@
   "eat.title": "Onde comer",
   "eat.description": "Sugerimos alguns restaurantes se quiserem explorar a zona ou apenas desfrutar de uma refeição algures.",
   "about.title": "Sobre nós",
-  "about.text": "Só demorou 10 anos (e um gato), mas vamos finalmente casar! De uma conversa de elevator a uma despedida de solteira e até uma bifana, a nossa aventura tem sido feita de viagens, gargalhadas e muitas derrotas no Helldivers (sempre com amor). Agora é altura de celebrar o próximo nível juntos. Tragam os sapatos de dança, deixem as Steam Decks em casa e juntem-se a nós para beber negronis!",
+  "about.text": "Só demorou 10 anos (e um gato), mas vamos finalmente casar! De uma conversa de elevador a uma despedida de solteira e até uma bifana, a nossa aventura tem sido feita de viagens, gargalhadas e muitas derrotas no Helldivers (sempre com amor). Agora é altura de celebrar o próximo nível juntos. Tragam os sapatos de dança, deixem as Steam Decks em casa e juntem-se a nós para beber negronis!",
   "countdown.months": "Meses",
   "countdown.weeks": "Semanas",
   "countdown.days": "Dias",
   "countdown.cta": "Confirmar presença",
   "countdown.timeline": "Confirmar presença antes de 31 de Março, 2026.",
   "presents.title": "Presentes",
-  "presents.text": "Já temos torradeiras, pratos e até a panela de pressão. Se quiserem contribuir para a nossa lua-de-mel de sonho (sem termos de vender o gato), podem fazê-lo aqui:",
-  "presents.caption": "IBAN PT50 0000 0000 0000 0000 0000 0000",
+  "presents.text": "Já temos torradeiras, pratos e até a panela de pressão. Se quiserem contribuir para a nossa lua-de-mel de sonho (sem termos de vender o gato), podem fazê-lo por aqui:",
+  "presents.caption": "IBAN PT50 0023 0000 45495698444 94",
   "footer.text": "Se a vida te der um convite de casamento, considera-o um cupão para um bolo e negronis grátis (e nunca dizes 'não' a negronis).",
   "modal.title": "Confirmar presença",
   "modal.description": "Estamos ansiosos para celebrar contigo! Se vais trazer um convidado ou tens restrições alimentares específicas, por favor indica abaixo.",
@@ -72,5 +73,5 @@
   "auth.questions.wedding_date": "Quando é o casamento?",
   "auth.questions.wedding_location": "Onde é o casamento?",
   "auth.questions.church_name": "Qual é o nome da igreja?",
-  "auth.questions.cat_name": "Qual é o nome do verdadeiro amor da Sónia — ou seja, o nome do gato? 🐱💕"
+  "auth.questions.cat_name": "Qual é o nome do verdadeiro amor da Sónia, ou seja, o gato?"
 }

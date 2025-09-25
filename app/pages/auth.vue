@@ -12,47 +12,61 @@
   </div>
   
   <!-- Auth form (only shown when not authenticated) -->
-  <div v-else class="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 flex items-center justify-center p-4 relative overflow-hidden">
-    <!-- Random Wedding Emojis Background -->
-    <div 
-      v-for="(emoji, index) in backgroundEmojis" 
-      :key="index"
-      class="absolute text-4xl opacity-20 pointer-events-none animate-pulse"
-      :style="emoji.style"
-    >
-      {{ emoji.char }}
-    </div>
+  <div v-else class="min-h-screen bg-gradient-to-br from-bg-card to-bg-card relative overflow-hidden">
     
-    <div class="max-w-md w-full relative z-10">
-      <!-- Wedding Logo/Title -->
-      <div class="text-center mb-8">
-        <h1 class="font-display font-bold text-primary text-3xl mb-2">{{ $t('brand.title') }}</h1>
-        <p class="font-serif font-light text-primary text-sm">{{ $t('brand.subtitle') }}</p>
+    <!-- Random Wedding Emojis Background
+      <div 
+        v-for="(emoji, index) in backgroundEmojis" 
+        :key="index"
+        class="absolute text-4xl opacity-20 pointer-events-none animate-pulse"
+        :style="emoji.style"
+      >
+        {{ emoji.char }}
+    </div> -->
+    
+    <!-- Header fixed at top -->
+    <header class="fixed top-0 left-0 right-0 z-20 flex justify-end items-end px-4 pt-4 md:px-6 md:pt-6">
+      <div class="flex items-center gap-4">
+        <LanguageSwitcher />
       </div>
+    </header>
 
-      <!-- Authentication Card -->
-      <div class="bg-white rounded-3xl shadow-xl p-8">
+    <!-- Main content centered in viewport -->
+    <div class="min-h-screen flex items-center justify-center p-4">
+      <div class="max-w-[480px] w-full relative z-10">
+        
+        <!-- Wedding Logo/Title -->
+        <div class="text-center mb-[48px]">
+          <p class="font-serif text-accent-light text-base">{{ $t('brand.date') }}</p>
+          <h1 class="font-display text-primary text-[104px] leading-[120%]">{{ $t('brand.title') }}</h1>
+          <!-- <p class="font-serif text-accent-light text-base">{{ $t('brand.subtitle') }}</p> -->
+        </div>
+
+        <!-- Authentication Card -->
+        <div class="bg-white rounded-3xl shadow-xl p-8">
+        
+        <!-- Title -->
         <div class="text-center mb-6">
-          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <!-- <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
             </svg>
           </div>
-          <h2 class="font-display font-bold text-primary text-xl mb-2">{{ $t('auth.title') }}</h2>
-          <p class="font-serif text-gray-600 text-sm">{{ $t('auth.subtitle') }}</p>
+          <h2 class="font-display text-primary text-2xl sm:text-2xl md:text-3xl lg:text-3xl">{{ $t('auth.title') }}</h2> -->
+          <p class="font-serif text-secondary text-base">{{ $t('auth.subtitle') }}</p>
         </div>
 
         <!-- Question Form -->
         <form @submit.prevent="handleSubmit" class="space-y-6">
           <div>
-            <label class="block font-serif font-medium text-primary text-sm mb-3">
+            <label class="block text-center font-serif text-primary text-base mb-3">
               {{ currentQuestion.question || 'Loading question...' }}
             </label>
             <input
               v-model="userAnswer"
               type="text"
               :placeholder="$t('auth.placeholder')"
-              class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors font-serif"
+              class="w-full px-6 py-4 border border-primary/20 rounded-lg focus:outline-none hover:border-primary/40 transition-colors font-serif text-primary placeholder:text-secondary"
               :class="{ 'border-red-300 focus:border-red-500 focus:ring-red-500/20': error }"
               :disabled="!currentQuestion.question"
               required
@@ -60,19 +74,22 @@
             <p v-if="error" class="text-red-500 text-sm mt-2 font-serif">{{ $t('auth.error') }}</p>
           </div>
 
-          <button
+          <div class="pt-4 flex justify-center">
+            <button
             type="submit"
             :disabled="!userAnswer.trim() || isSubmitting || !currentQuestion.question"
-            class="w-full bg-primary text-white py-3 px-6 rounded-xl font-display font-bold text-lg hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-          >
+            class="w-full bg-accent-light text-white px-8 py-4 rounded-full font-serif text-base hover:bg-accent-light/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
             <span v-if="isSubmitting">{{ $t('auth.checking') }}</span>
-            <span v-else>{{ $t('auth.submit') }}</span>
-          </button>
+              <span v-else>{{ $t('auth.submit') }}</span>
+            </button>
+          </div>
         </form>
 
-        <!-- Language Switcher -->
+        <!-- Language Switcher
         <div class="mt-6 pt-6 border-t border-gray-100">
           <LanguageSwitcher />
+        </div> -->
         </div>
       </div>
     </div>
