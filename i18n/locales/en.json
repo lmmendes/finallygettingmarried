@@ -1,6 +1,7 @@
 {
+  "brand.date": "05.23.2026",
   "brand.title": "Sónia & Luís",
-  "brand.subtitle": "Finally getting married",
+  "brand.subtitle": "Finally getting married!",
   "nav.about": "About",
   "nav.details": "Details",
   "nav.stay": "Stay",
@@ -33,8 +34,8 @@
   "countdown.cta": "Confirm attendance",
   "countdown.timeline": "Confirm attendance before March 31, 2026.",
   "presents.title": "Presents",
-  "presents.text": "We already have toasters, plates, and even a pressure cooker. If you'd like to contribute to our dream honeymoon (without us having to sell the cat), you can do it here:",
-  "presents.caption": "IBAN PT50 0000 0000 0000 0000 0000 0000",
+  "presents.text": "We already have toasters, plates, and even a pressure cooker. If you'd like to contribute to our dream honeymoon (without us having to sell the cat), you can do it through here:",
+  "presents.caption": "IBAN PT50 0023 0000 45495698444 94",
   "footer.text": "If life gives you a wedding invite, think of it as a coupon for free cake and negronis (and you never say 'no' to negronis).",
   "modal.title": "Confirm attendance",
   "modal.description": "We can't wait to celebrate with you! If you're bringing a guest or have any dietary needs, please let us know below.",
@@ -72,5 +73,5 @@
   "auth.questions.wedding_date": "When is the wedding?",
   "auth.questions.wedding_location": "Where is the wedding?",
   "auth.questions.church_name": "What is the name of the church?",
-  "auth.questions.cat_name": "What is the name of Sónia’s true love — in other words, her cat? 🐾💕"
+  "auth.questions.cat_name": "What is the name of Sónia's true love, her cat?"
 }
