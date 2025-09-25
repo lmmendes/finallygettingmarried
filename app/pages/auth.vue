@@ -33,13 +33,13 @@
 
     <!-- Main content centered in viewport -->
     <div class="min-h-screen flex items-center justify-center p-4">
-      <div class="max-w-[520px] w-full relative z-10">
+      <div class="max-w-[480px] w-full relative z-10">
         
         <!-- Wedding Logo/Title -->
-        <div class="text-center mb-[64px]">
-          <p class="font-serif text-secondary text-base">{{ $t('brand.date') }}</p>
-          <h1 class="font-display text-primary text-[64px] leading-[120%]">{{ $t('brand.title') }}</h1>
-          <p class="font-serif text-accent-light text-xl">{{ $t('brand.subtitle') }}</p>
+        <div class="text-center mb-[48px]">
+          <p class="font-serif text-accent-light text-base">{{ $t('brand.date') }}</p>
+          <h1 class="font-display text-primary text-[104px] leading-[120%]">{{ $t('brand.title') }}</h1>
+          <!-- <p class="font-serif text-accent-light text-base">{{ $t('brand.subtitle') }}</p> -->
         </div>
 
         <!-- Authentication Card -->
@@ -53,13 +53,13 @@
             </svg>
           </div>
           <h2 class="font-display text-primary text-2xl sm:text-2xl md:text-3xl lg:text-3xl">{{ $t('auth.title') }}</h2> -->
-          <p class="font-serif text-primary text-base">{{ $t('auth.subtitle') }}</p>
+          <p class="font-serif text-secondary text-base">{{ $t('auth.subtitle') }}</p>
         </div>
 
         <!-- Question Form -->
         <form @submit.prevent="handleSubmit" class="space-y-6">
           <div>
-            <label class="block text-center font-serif text-accent-light text-xl mb-3">
+            <label class="block text-center font-serif text-primary text-base mb-3">
               {{ currentQuestion.question || 'Loading question...' }}
             </label>
             <input
