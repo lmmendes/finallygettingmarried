@@ -36,12 +36,12 @@ const getHotelImage = (hotelName: string): string => {
 </script>
 
 <template>
-    <section class="px-8 pt-[120px]">
+    <section class="px-8 pt-[120px] lg:pt-[208px]">
         <div class="grid lg:grid-cols-2 gap-[40px] lg:gap-[80px] items-start">
             <!-- Left side - Title and Description -->
             <div class="space-y-2">
-                <h2 class="font-display text-primary text-3xl">{{ $t('stay.title') }}</h2>
-                <p class="font-serif text-accent-light text-2xl sm:text-2xl md:text-3xl lg:text-3xl !leading-[150%]">
+                <h2 class="font-caption text-primary text-sm uppercase">{{ $t('stay.title') }}</h2>
+                <p class="font-serif font-light text-accent-light text-2xl sm:text-2xl md:text-3xl lg:text-3xl !leading-[150%]">
                     {{ $t('stay.description') }}
                 </p>
             </div>
@@ -69,15 +69,15 @@ const getHotelImage = (hotelName: string): string => {
                         <div class="flex-1 space-y-1">
                             <!-- Card text -->
                             <div class="space-y-1">
-                                <h3 class="font-display text-primary text-2xl">{{ h.name }}</h3>
-                                <p class="font-serif text-primary text-base">
+                                <h3 class="font-serif font-light italic text-primary text-xl">{{ h.name }}</h3>
+                                <p class="font-serif font-light text-primary text-base">
                                     {{ h.area }} - {{ h.driveMins }}min
                                 </p>
                             </div>
 
                             <!-- Booking.com -->
                             <div class="flex gap-1 text-sm">
-                                <span class="inline-flex items-center gap-2 font-serif text-accent-light text-sm underline">
+                                <span class="inline-flex items-center gap-2 font-scaptionerif text-accent-light text-sm underline">
                                     {{ h.bookingUrl ? 'Booking.com' : 'Get directions' }}
                                 </span>
                                 <span class="material-symbols-outlined text-base text-accent-light">arrow_forward</span>

@@ -27,8 +27,9 @@ export default <Partial<Config>>{
         white: "#FFFFFF",
       },
       fontFamily: {
-        serif: ['Lora', "serif"],
-        display: ['Great Vibes', 'cursive']
+        serif: ['Newsreader', "serif"],
+        display: ['Great Vibes', 'cursive'],
+        caption: ['Questrial', 'sans-serif']
       },
       boxShadow: {
         soft: "0 6px 24px rgba(0,0,0,.06)",

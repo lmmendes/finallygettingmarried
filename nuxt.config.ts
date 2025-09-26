@@ -45,7 +45,7 @@ export default defineNuxtConfig({
         {
           rel: "stylesheet",
           // Elegant serif + beautiful script font
-          href: "https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap",
+          href: "https://fonts.googleapis.com/css2?family=Great+Vibes&family=Questrial&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap",
           //href: "https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Questrial&family=Great+Vibes&display=swap",
         },
         {

@@ -33,12 +33,12 @@ const getRestaurantImage = (restaurantName: string): string => {
 </script>
 
 <template>
-    <section class="px-8 pb-[120px]">
+    <section class="px-8 pb-[120px] lg:pb-[208px]">
         <div class="grid lg:grid-cols-2 gap-[40px] lg:gap-[80px] items-start">
             <!-- Left side - Title and Description -->
             <div class="space-y-2">
-                <h2 class="font-display text-primary text-3xl">{{ $t('eat.title') }}</h2>
-                <p class="font-serif text-accent-light text-2xl sm:text-2xl md:text-3xl lg:text-3xl !leading-[150%]">
+                <h2 class="font-caption text-primary text-sm uppercase">{{ $t('eat.title') }}</h2>
+                <p class="font-serif font-light text-accent-light text-2xl sm:text-2xl md:text-3xl lg:text-3xl !leading-[150%]">
                     {{ $t('eat.description') }}
                 </p>
             </div>
@@ -65,13 +65,13 @@ const getRestaurantImage = (restaurantName: string): string => {
                         <!-- Content -->
                         <div class="flex-1 space-y-1">
                             <div class="space-y-1">
-                                <h3 class="font-display text-primary text-2xl">{{ p.name }}</h3>
-                                <p class="font-serif text-primary text-base">
+                                <h3 class="font-serif font-light italic text-primary text-xl">{{ p.name }}</h3>
+                                <p class="font-serif font-light text-primary text-base">
                                     {{ p.area }} - {{ p.driveMins }}min
                                 </p>
                             </div>
                             <div class="flex gap-1 text-sm">
-                                <span class="inline-flex items-center gap-2 font-serif text-accent-light text-sm underline">
+                                <span class="inline-flex items-center gap-2 font-caption text-accent-light text-sm underline">
                                     Get directions
                                 </span>
                                 <span class="material-symbols-outlined text-base text-accent-light">arrow_forward</span>

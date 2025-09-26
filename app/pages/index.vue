@@ -13,8 +13,10 @@
     
     <!-- Main content (only shown when authenticated and initialized) -->
     <div v-else-if="isAuthenticated && !isLoading" class="min-h-screen bg-white">
+        
         <!-- Hero Section with full viewport height -->
         <div class="hero-section flex flex-col relative overflow-hidden" style="height: 100vh;">
+            
             <!-- Background images with crossfade effect -->
             <div 
                 v-for="(image, index) in carousselImages" 
@@ -23,8 +25,10 @@
                 :class="{ 'opacity-100': index === currentImageIndex, 'opacity-0': index !== currentImageIndex }"
                 :style="{ backgroundImage: `url(${image})` }"
             ></div>
-            <!-- Overlay with 80% opacity -->
-            <div class="absolute inset-0 bg-accent-blue/90"></div>
+            
+            <!-- Overlay with radial gradient -->
+            <div class="absolute inset-0" style="background: radial-gradient(circle at center, rgba(96, 95, 75, 0.8) 0%, rgba(96, 95, 75, 0.4) 50%, rgba(96, 95, 75, 0.1) 100%);"></div>
+            
             <!-- Content -->
             <div class="relative z-10 flex flex-col h-full">
 
@@ -44,21 +48,23 @@
 
                 <!-- Hero CTA Section - takes remaining space -->
                 <section class="flex-1 flex flex-col justify-center items-center text-center px-4 md:px-6">
-                    <!-- Hero Rings Image -->
+                    <!-- Hero Rings Image 
                     <div class="mb-8">
                         <img 
                             src="/images/design/hero-rings.png" 
                             alt="Wedding rings" 
                             class="w-[180px] h-auto mx-auto opacity-90"
                         />
-                    </div>
+                    </div> -->
                     
                     <!-- Hero Title -->
-                    <h2 class="font-display text-primary text-5xl sm:text-5xl md:text-7xl lg:text-[104px] leading-[80%] sm:leading-[80%] mb-6">
-                        {{ $t('hero.title') }} <span class='block'>{{ $t('hero.subtitle') }}</span>
+                    <p class="font-caption text-accent-light text-base leading-[100%] mb-8">{{ $t('hero.date') }}</p>
+                    <h2 class="font-display text-white text-6xl sm:text-6xl md:text-8xl lg:text-[104px] leading-[80%] sm:leading-[80%] mb-2">
+                        {{ $t('hero.title') }}
                     </h2>
+                    <p class="font-serif font-light italic text-white text-2xl sm:text-2xl md:text-3xl lg:text-3xl leading-[100%] mb-[64px]">{{ $t('hero.subtitle') }}</p>
                     
-                    <!-- Date with decorative swirls -->
+                    <!-- Date with decorative swirls
                     <div class="flex items-center justify-center gap-6 mb-16">
                         <img 
                             src="/images/design/hero-swirls.png" 
@@ -71,10 +77,10 @@
                             alt="Decorative swirl" 
                             class="w-8 h-auto scale-x-[-1]"
                         />
-                    </div>
+                    </div> -->
 
                     <!-- RSVP CTA -->
-                    <button @click="openModal" class="inline-block bg-accent-light text-white px-8 py-4 rounded-full font-serif text-base hover:bg-accent-light/80 transition-colors">
+                    <button @click="openModal" class="inline-block shadow-xl bg-accent-light text-white px-10 py-6 rounded-full font-caption text-sm uppercase hover:bg-accent-light/80 transition-colors">
                         {{ $t('hero.cta') }}
                     </button>
                 </section>
@@ -82,7 +88,7 @@
         </div>
 
         <!-- Rest of sections -->
-        <div class="w-full bg-bg-subtle">
+        <div class="w-full bg-accent-blue">
             <div class="max-w-5xl mx-auto">
                 <div>
 
@@ -106,35 +112,35 @@
 
                     <!-- Countdown Section -->
                     <section class="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-                        <div class="bg-accent-blue p-[104px] text-center relative overflow-hidden">
+                        <div class="bg-accent-light p-[104px] text-center relative overflow-hidden">
                             <!-- Content -->
                             <div class="relative z-10">
-                                <div class="flex items-top justify-center gap-8 text-5xl md:text-6xl font-display text-primary mb-10">
+                                <div class="flex items-top justify-center gap-8 text-5xl md:text-6xl lg:text-8xl font-display text-white mb-10">
                                     <div class="text-center">
                                         <div class="w-26 text-center">{{ String(remaining.months).padStart(2, '0') }}</div>
-                                        <div class="text-base font-serif font-light text-secondary mt-1">{{ $t('countdown.months') }}</div>
+                                        <div class="text-base font-caption font-light text-white mt-1">{{ $t('countdown.months') }}</div>
                                     </div>
-                                    <span class="text-primary">:</span>
+                                    <span class="text-white">:</span>
                                     <div class="text-center">
                                         <div class="w-26 text-center">{{ String(remaining.weeks).padStart(2, '0') }}</div>
-                                        <div class="text-base font-serif font-light text-secondary mt-1">{{ $t('countdown.weeks') }}</div>
+                                        <div class="text-base font-caption font-light text-white mt-1">{{ $t('countdown.weeks') }}</div>
                                     </div>
-                                    <span class="text-primary">:</span>
+                                    <span class="text-white">:</span>
                                     <div class="text-center">
                                         <div class="w-26 text-center">{{ String(remaining.days).padStart(2, '0') }}</div>
-                                        <div class="text-base font-serif font-light text-secondary mt-1">{{ $t('countdown.days') }}</div>
+                                        <div class="text-base font-caption font-light text-white mt-1">{{ $t('countdown.days') }}</div>
                                     </div>
                                 </div>
 
                                 <!-- CTA -->
                                 <button
                                     @click="openModal"
-                                    class="inline-block bg-accent-light text-white px-8 py-4 rounded-full font-serif text-base hover:bg-accent-light/80 transition-colors">
+                                    class="inline-block shadow-xl bg-primary text-white px-8 py-4 rounded-full font-caption text-sm uppercase hover:bg-primary/80 transition-colors">
                                     {{ $t('countdown.cta') }}
                                 </button>
 
                                 <!-- Timeline -->
-                                <p class="font-serif text-secondary text-sm leading-relaxed mt-10">
+                                <p class="font-caption text-white text-sm leading-relaxed mt-10">
                                 {{ $t('countdown.timeline') }}
                                 </p>
                             </div>
