@@ -8,8 +8,8 @@
   "nav.eat": "Onde comer",
   "nav.gallery": "Galeria",
   "nav.rsvp": "Confirmar",
-  "hero.title": "A Sónia e o Luís",
-  "hero.subtitle": "vão finalmente casar!",
+  "hero.title": "Sónia & Luís",
+  "hero.subtitle": "Finalmente casam!",
   "hero.date": "23.05.2026",
   "hero.cta": "Confirmar presença",
   "details.title": "Detalhes do Casamento",
@@ -32,7 +32,7 @@
   "countdown.weeks": "Semanas",
   "countdown.days": "Dias",
   "countdown.cta": "Confirmar presença",
-  "countdown.timeline": "Confirmar presença antes de 31 de Março, 2026.",
+  "countdown.timeline": "Confirmar presença até 31 de Março, 2026.",
   "presents.title": "Presentes",
   "presents.text": "Já temos torradeiras, pratos e até a panela de pressão. Se quiserem contribuir para a nossa lua-de-mel de sonho (sem termos de vender o gato), podem fazê-lo por aqui:",
   "presents.caption": "IBAN PT50 0023 0000 45495698444 94",
@@ -64,7 +64,7 @@
   "modal.error": "Erro ao enviar confirmação. Por favor, tente novamente.",
   "auth.title": "Bem-vindos ao nosso casamento!",
   "auth.subtitle": "Para aceder ao site, responde a uma pergunta simples sobre nós.",
-  "auth.placeholder": "Escreve a tua resposta aqui...",
+  "auth.placeholder": "Dica: cheira a peixe.",
   "auth.submit": "Verificar",
   "auth.checking": "A verificar...",
   "auth.error": "Resposta incorreta. Tenta novamente!",
@@ -73,5 +73,5 @@
   "auth.questions.wedding_date": "Quando é o casamento?",
   "auth.questions.wedding_location": "Onde é o casamento?",
   "auth.questions.church_name": "Qual é o nome da igreja?",
-  "auth.questions.cat_name": "Qual é o nome do verdadeiro amor da Sónia, ou seja, o gato?"
+  "auth.questions.cat_name": "Qual é o nome do verdadeiro amor da Sónia, o gato?"
 }

@@ -12,7 +12,7 @@
   </div>
   
   <!-- Auth form (only shown when not authenticated) -->
-  <div v-else class="min-h-screen bg-gradient-to-br from-bg-card to-bg-card relative overflow-hidden">
+  <div v-else class="min-h-screen bg-accent-blue relative overflow-hidden">
     
     <!-- Random Wedding Emojis Background
       <div 
@@ -37,13 +37,13 @@
         
         <!-- Wedding Logo/Title -->
         <div class="text-center mb-[48px]">
-          <p class="font-serif text-accent-light text-base">{{ $t('brand.date') }}</p>
-          <h1 class="font-display text-primary text-[104px] leading-[120%]">{{ $t('brand.title') }}</h1>
+          <p class="font-caption text-accent-light text-base leading-[100%] mb-10">{{ $t('brand.date') }}</p>
+          <h1 class="font-display text-primary text-6xl sm:text-6xl md:text-8xl lg:text-[104px] leading-[80%] sm:leading-[80%] mb-2">{{ $t('brand.title') }}</h1>
           <!-- <p class="font-serif text-accent-light text-base">{{ $t('brand.subtitle') }}</p> -->
         </div>
 
         <!-- Authentication Card -->
-        <div class="bg-white rounded-3xl shadow-xl p-8">
+        <div class="bg-bg-subtle rounded-3xl shadow-xl p-8">
         
         <!-- Title -->
         <div class="text-center mb-6">
@@ -53,13 +53,13 @@
             </svg>
           </div>
           <h2 class="font-display text-primary text-2xl sm:text-2xl md:text-3xl lg:text-3xl">{{ $t('auth.title') }}</h2> -->
-          <p class="font-serif text-secondary text-base">{{ $t('auth.subtitle') }}</p>
+          <p class="font-serif font-light text-accent-light text-2xl sm:text-2xl md:text-3xl lg:text-3xl !leading-[120%] mb-10">{{ $t('auth.subtitle') }}</p>
         </div>
 
         <!-- Question Form -->
         <form @submit.prevent="handleSubmit" class="space-y-6">
           <div>
-            <label class="block text-center font-serif text-primary text-base mb-3">
+            <label class="block text-center font-serif font-light text-primary text-base mb-3">
               {{ currentQuestion.question || 'Loading question...' }}
             </label>
             <input
@@ -78,7 +78,7 @@
             <button
             type="submit"
             :disabled="!userAnswer.trim() || isSubmitting || !currentQuestion.question"
-            class="w-full bg-accent-light text-white px-8 py-4 rounded-full font-serif text-base hover:bg-accent-light/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            class="w-full bg-accent-light text-white px-8 py-4 rounded-full font-caption text-sm uppercase hover:bg-accent-light/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
             <span v-if="isSubmitting">{{ $t('auth.checking') }}</span>
               <span v-else>{{ $t('auth.submit') }}</span>

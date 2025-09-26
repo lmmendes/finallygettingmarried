@@ -18,8 +18,8 @@
                 
                 <!-- Title -->
                 <div class="text-center max-w-2xl mx-auto pt-[80px] space-y-4 pb-[40px]">
-                    <h2 class="font-display text-primary text-2xl sm:text-2xl md:text-3xl lg:text-3xl">{{ t('modal.title') }}</h2>
-                    <p class="font-serif text-accent-light text-2xl sm:text-2xl md:text-3xl lg:text-3xl !leading-[150%]">
+                    <h2 class="font-caption text-primary text-sm uppercase">{{ t('modal.title') }}</h2>
+                    <p class="font-serif font-light text-accent-light text-2xl sm:text-2xl md:text-3xl lg:text-3xl !leading-[150%]">
                         {{ $t('modal.description') }}
                     </p>
                 </div>
@@ -28,13 +28,13 @@
                 <form @submit.prevent="submitRSVP" class="space-y-12 max-w-2xl mx-auto">
                     <!-- Main guest name -->
                     <div class="space-y-3">
-                        <label class="font-serif text-primary text-base font-medium">{{ t('modal.name.label') }}</label>
+                        <label class="font-serif font-light text-primary text-base">{{ t('modal.name.label') }}</label>
                         <input 
                             type="text" 
                             v-model="form.name"
                             :placeholder="t('modal.main.placeholder')"
                             :class="[
-                                'w-full px-6 py-4 border border-primary/20 rounded-lg focus:outline-none hover:border-primary/40 transition-colors font-serif text-primary placeholder:text-secondary',
+                                'w-full px-6 py-4 border border-primary/20 rounded-lg focus:outline-none hover:border-primary/40 transition-colors font-serif font-light text-primary placeholder:text-secondary',
                                 form.name.trim() ? 'bg-white' : 'bg-white/40 hover:bg-white/50'
                             ]"
                             required
@@ -44,7 +44,7 @@
                     <!-- Attendance Confirmation -->
                     <div class="space-y-4">
                         <div>
-                            <h3 class="font-serif text-primary text-base font-medium mb-2">{{ t('modal.attendance.title') }}</h3>
+                            <h3 class="font-serif font-light text-primary text-base mb-2">{{ t('modal.attendance.title') }}</h3>
                         </div>
                         
                         <div class="space-y-3">
@@ -56,7 +56,7 @@
                                     required
                                     class="w-5 h-5 text-accent border-2 border-primary/20"
                                 />
-                                <span class="ml-4 font-serif text-primary text-base">{{ t('modal.attendance.yes') }}</span>
+                                <span class="ml-4 font-serif font-light text-primary text-base">{{ t('modal.attendance.yes') }}</span>
                             </label>
                             <label class="flex items-center p-4 border border-primary/20 rounded-lg cursor-pointer hover:border-primary/40 hover:bg-secondary/10 transition-colors has-[:checked]:border-primary has-[:checked]:bg-secondary/40">
                                 <input 
@@ -66,7 +66,7 @@
                                     required
                                     class="w-5 h-5 text-gray-400 border-2 border-primary/20"
                                 />
-                                <span class="ml-4 font-serif text-primary text-base">{{ t('modal.attendance.no') }}</span>
+                                <span class="ml-4 font-serif font-light text-primary text-base">{{ t('modal.attendance.no') }}</span>
                             </label>
                         </div>
                      </div>
@@ -74,8 +74,8 @@
                     <!-- Message for bride and groom (only if not attending) -->
                     <div v-if="form.attendance === 'no'" class="space-y-4">
                         <div>
-                            <h3 class="font-serif text-primary text-base font-medium mb-1">{{ t('modal.message.title') }}</h3>
-                            <p class="font-serif text-secondary text-base">
+                            <h3 class="font-serif font-light text-primary text-base mb-1">{{ t('modal.message.title') }}</h3>
+                            <p class="font-serif font-light text-secondary text-base">
                                 {{ t('modal.message.description') }}
                             </p>
                         </div>
@@ -83,7 +83,7 @@
                             v-model="form.message"
                             rows="4"
                             :class="[
-                                'w-full px-6 py-4 border border-primary/20 rounded-lg font-serif text-primary text-base focus:outline-none hover:border-primary/40 focus:ring-0 transition-colors resize-none placeholder:text-secondary',
+                                'w-full px-6 py-4 border border-primary/20 rounded-lg font-serif font-light text-primary text-base focus:outline-none hover:border-primary/40 focus:ring-0 transition-colors resize-none placeholder:text-secondary',
                                 form.message.trim() ? 'bg-white' : 'bg-white/40 hover:bg-white/50'
                             ]"
                             :placeholder="t('modal.message.placeholder')"
@@ -95,8 +95,8 @@
                         <!-- Name Section -->
                         <div class="space-y-4">
                             <div>
-                                <h3 class="font-serif text-primary text-base font-medium mb-1">{{ t('modal.guest.label') }}</h3>
-                                <p class="font-serif text-secondary text-base">
+                                <h3 class="font-serif font-light text-primary text-base mb-1">{{ t('modal.guest.label') }}</h3>
+                                <p class="font-serif font-light text-secondary text-base">
                                     {{ t('modal.name.description') }}
                                 </p>
                             </div>
@@ -108,7 +108,7 @@
                                     v-model="form.additionalGuests[index]"
                                     type="text"
                                     :class="[
-                                        'w-full px-6 py-4 border border-primary/20 rounded-lg font-serif text-primary text-base focus:outline-none hover:border-primary/40 focus:ring-0 transition-colors placeholder:text-secondary',
+                                        'w-full px-6 py-4 border border-primary/20 rounded-lg font-serif font-light text-primary text-base focus:outline-none hover:border-primary/40 focus:ring-0 transition-colors placeholder:text-secondary',
                                         form.additionalGuests[index]?.trim() ? 'bg-white' : 'bg-white/40 hover:bg-white/50'
                                     ]"
                                     :placeholder="t('modal.name.guest_placeholder')"
@@ -116,7 +116,7 @@
                                 <button 
                                     type="button"
                                     @click="removeGuest(index)"
-                                    class="absolute right-4 top-1/2 -translate-y-1/2 text-primary/40 hover:text-red-500 transition-colors"
+                                    class="absolute right-4 top-1/2 -translate-y-1/2 text-caption text-sm leading-[100%] text-primary/40 hover:text-red-500 transition-colors"
                                 >
                                     <span class="material-symbols-outlined text-lg text-accent-light">close</span>
                                 </button>
@@ -126,7 +126,7 @@
                             <button 
                                 type="button"
                                 @click="addGuest"
-                                class="flex items-center gap-2 text-accent-light font-serif text-base hover:text-accent-light/80 transition-colors"
+                                class="flex items-center gap-2 text-accent-light font-caption text-sm leading-[100%] hover:text-accent-light/80 transition-colors"
                             >
                             <span class="text-xl">+</span>
                             {{ t('modal.name.add_guest') }}
@@ -139,8 +139,8 @@
                         <!-- Dietary description -->
                         <div class="space-y-4">
                             <div>
-                                <h3 class="font-serif text-primary text-base font-medium mb-1">{{ t('modal.dietary.title') }}</h3>
-                                <p class="font-serif text-secondary text-base">
+                                <h3 class="font-serif font-light text-primary text-base mb-1">{{ t('modal.dietary.title') }}</h3>
+                                <p class="font-serif font-light text-secondary text-base">
                                     {{ t('modal.dietary.description') }}
                                 </p>
                             </div>
@@ -149,7 +149,7 @@
                                 v-model="form.dietary"
                                 rows="3"
                                 :class="[
-                                    'w-full px-6 py-4 border border-primary/20 rounded-lg font-serif text-primary text-base focus:outline-none hover:border-primary/40 focus:ring-0 transition-colors resize-none placeholder:text-secondary',
+                                    'w-full px-6 py-4 border border-primary/20 rounded-lg font-serif font-light text-primary text-base focus:outline-none hover:border-primary/40 focus:ring-0 transition-colors resize-none placeholder:text-secondary',
                                     form.dietary.trim() ? 'bg-white' : 'bg-white/40 hover:bg-white/50'
                                 ]"
                                 :placeholder="t('modal.dietary.placeholder')"
@@ -162,8 +162,8 @@
                         <!-- Music Request -->
                         <div class="space-y-4">
                             <div>
-                                <h3 class="font-serif text-primary text-base font-medium mb-1">{{ t('modal.music.title') }}</h3>
-                                <p class="font-serif text-secondary text-base" v-html="t('modal.music.description')">
+                                <h3 class="font-serif font-light text-primary text-base mb-1">{{ t('modal.music.title') }}</h3>
+                                <p class="font-serif font-light text-secondary text-base" v-html="t('modal.music.description')">
                                 </p>
                             </div>
                         
@@ -171,7 +171,7 @@
                                 v-model="form.musicRequest"
                                 type="text"
                                 :class="[
-                                    'w-full px-6 py-4 border border-primary/20 rounded-lg font-serif text-primary text-base focus:outline-none hover:border-primary/40 focus:ring-0 transition-colors placeholder:text-secondary',
+                                    'w-full px-6 py-4 border border-primary/20 rounded-lg font-serif font-light text-primary text-base focus:outline-none hover:border-primary/40 focus:ring-0 transition-colors placeholder:text-secondary',
                                     form.musicRequest.trim() ? 'bg-white' : 'bg-white/40 hover:bg-white/50'
                                 ]"
                                 :placeholder="t('modal.music.placeholder')"
@@ -184,7 +184,7 @@
                         <button 
                             type="submit"
                             :disabled="isSubmitting || !isFormValid"
-                            class="bg-accent-light text-white px-8 py-4 rounded-full font-serif text-base hover:bg-accent-light/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                            class="shadow-xl bg-accent-light text-white px-8 py-4 rounded-full font-caption text-sm uppercase hover:bg-accent-light/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             {{ isSubmitting ? t('modal.submitting') : t('modal.submit') }}
                         </button>
